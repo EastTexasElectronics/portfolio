@@ -1,3 +1,5 @@
+/** Home Page */
+
 import { VortexHero } from "@/components/vortex-hero";
 import { SkillsGrid } from "@/components/skills-grid";
 import { Projects } from "@/components/projects";

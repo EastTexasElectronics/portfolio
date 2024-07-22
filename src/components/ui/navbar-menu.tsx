@@ -1,9 +1,16 @@
+/**
+ * Inspired by https://ui.aceternity.com/components/navbar-menu
+ * Rewritten for better performance, type safety, modularity, and current standards.
+ * Please ensure you update the aria-label on the links to match the content.
+ */
+
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
+// Transition settings for framer-motion animations
 const transition = {
     type: "spring",
     mass: 0.5,
@@ -25,7 +32,7 @@ export const MenuItem = ({ setActive, active, item, children }: MenuItemProps) =
         <div onMouseEnter={() => setActive(item)} className="relative">
             <motion.p
                 transition={{ duration: 0.3 }}
-                className="cursor-pointer text-white hover:opacity-[0.9]"
+                className="cursor-pointer text-neutral-200 hover:opacity-[0.9]"
             >
                 {item}
             </motion.p>
@@ -59,11 +66,12 @@ interface MenuProps {
     children: React.ReactNode;
 }
 
+
 export const Menu = ({ setActive, children }: MenuProps) => {
     return (
         <nav
             onMouseLeave={() => setActive(null)} // resets the state
-            className="relative rounded-full border border-white/[0.2] bg-black shadow-input flex justify-center space-x-4 px-8 py-6"
+            className="relative rounded-full border border-white/[0.2] bg-black shadow-input flex justify-center space-x-4 px-8 py-6 opacity-90"
         >
             {children}
         </nav>
@@ -88,7 +96,7 @@ export const ProductItem = ({ title, description, href, src }: ProductItemProps)
                 className="flex-shrink-0 rounded-md shadow-2xl"
             />
             <div>
-                <h4 className="text-xl font-bold mb-1 text-white">
+                <h4 className="text-xl font-bold mb-1 text-neutral-100">
                     {title}
                 </h4>
                 <p className="text-neutral-300 text-sm max-w-[10rem]">
@@ -109,7 +117,7 @@ export const HoveredLink = ({ children, href, ...rest }: HoveredLinkProps) => {
         <Link
             href={href}
             {...rest}
-            className="text-neutral-200 hover:text-white"
+            className="text-neutral-100 hover:text-neutral-200"
         >
             {children}
         </Link>

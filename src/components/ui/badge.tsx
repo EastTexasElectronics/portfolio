@@ -1,3 +1,8 @@
+/**
+ * This component is from https://ui.shadcn.com/docs/components/badge
+ * Rewritten for better performance, type safety, and modularity.
+ * To change color settings, please refer to your /styles/globals.css file.
+ */
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 

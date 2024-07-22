@@ -4,6 +4,7 @@ import React, { useEffect, useId, useRef, useState, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 
+
 type Card = {
     description: string;
     title: string;
@@ -17,13 +18,13 @@ const cards: Card[] = [
     {
         description: "Shopify Liquid eCommerce",
         title: "Nerd Stuff of Alabama's Website",
-        src: "https://assets.aceternity.com/demos/lana-del-rey.jpeg",
+        src: "https://i.postimg.cc/p9y4fsSL/NSA-Logo.png",
         ctaText: "Explore",
         ctaLink: "https://alnerdstuff.com",
         content: () => {
             return (
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
+                    Nerd Stuff of Alabama is a growing collectables eCommerce buisness. They are currently using the Minion theme, which is a paid and well maintained theme.  I have modified the source code to add custom features and functionality. I activly maintain their website and provide support when issues arise.
                 </p>
             );
         },
@@ -31,13 +32,13 @@ const cards: Card[] = [
     {
         description: "iOS and Android eCommerce App",
         title: "Nerd Stuff of Alabama's Mobile App",
-        src: "https://assets.aceternity.com/demos/babbu-maan.jpeg",
+        src: "https://i.postimg.cc/p9y4fsSL/NSA-Logo.png",
         ctaText: "Explore",
         ctaLink: "https://app.alnerdstuff.com",
         content: () => {
             return (
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
+                    Nerd Stuff of Alabama is a growing collectables eCommerce buisness. I am currently building their mobile application, the tech stack includes React Native, Expo, TailwindCSS, and the Shopify API. Once completed the template will be released as an open source project, for any new Shopify Developers.
                 </p>
             );
         },
@@ -45,13 +46,13 @@ const cards: Card[] = [
     {
         description: "A CLI File Tree Generator tool written in many languages",
         title: "File Tree Generator Multiverse",
-        src: "https://assets.aceternity.com/demos/metallica.jpeg",
+        src: "https://i.postimg.cc/Wd5xqBXy/FTG-Logo.png",
         ctaText: "Explore",
-        ctaLink: "https://ui.aceternity.com/templates",
+        ctaLink: "/",
         content: () => {
             return (
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
+                    The FTG project is a Command Line tool that generates a file tree in the specified directory. It has been written in many languages and is available on GitHub.  I personally use the Golang version of the tool.
                 </p>
             );
         },
@@ -59,13 +60,13 @@ const cards: Card[] = [
     {
         description: "eCommerce Website",
         title: "East Texas Electronics LLC.",
-        src: "https://assets.aceternity.com/demos/led-zeppelin.jpeg",
+        src: "https://i.postimg.cc/x13j0c9X/ETE-Logo.png",
         ctaText: "Explore",
-        ctaLink: "https://ui.aceternity.com/templates",
+        ctaLink: "/",
         content: () => {
             return (
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
+                    ETE is a small eCommerce and Electronics Repair shop in East Texas. I build, run, and maintain this website.
                 </p>
             );
         },
@@ -73,27 +74,27 @@ const cards: Card[] = [
     {
         description: "A command line tool to bulk convert images to different formats",
         title: "Image Conversion Tool",
-        src: "https://assets.aceternity.com/demos/toh-phir-aao.jpeg",
+        src: "https://i.postimg.cc/hGYkgBQJ/IC-Logo.png",
         ctaText: "Explore",
-        ctaLink: "https://ui.aceternity.com/templates",
+        ctaLink: "/",
         content: () => {
             return (
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
+                    Coming Soon! An open source secure client side browser based image converter.
                 </p>
             );
         },
     },
     {
-        description: "Mustafa ",
-        title: "Toh ",
-        src: "https://assets.aceternity.com/demos/toh-phir-aao.jpeg",
+        description: "A free Shopify theme for Shopify Liquid",
+        title: "Shopify Liquid Theme",
+        src: "https://i.postimg.cc/c1knSkXp/Shopify-Logo.png",
         ctaText: "Explore",
-        ctaLink: "https://ui.aceternity.com/templates",
+        ctaLink: "/",
         content: () => {
             return (
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
+                    Coming Soon! An open source Shopify theme for Shopify Liquid.
                 </p>
             );
         },
@@ -183,7 +184,7 @@ export function Projects() {
                                             layoutId={`button-${active.title}-${id}`}
                                             href={active.ctaLink}
                                             target="_blank"
-                                            className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-white"
+                                            className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-neutral-100"
                                         >
                                             {active.ctaText}
                                         </motion.a>
@@ -242,7 +243,7 @@ export function Projects() {
                         </div>
                         <motion.button
                             layoutId={`button-${card.title}-${id}`}
-                            className="px-4 py-2 text-sm rounded-full font-bold bg-gray-800 hover:bg-green-500 hover:text-white text-white mt-4 md:mt-0"
+                            className="px-4 py-2 text-sm rounded-full font-bold bg-gray-800 hover:bg-green-500 hover:text-neutral-100 text-neutral-100 mt-4 md:mt-0"
                         >
                             {card.ctaText}
                         </motion.button>
@@ -268,7 +269,7 @@ export const CloseIcon = () => {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="h-4 w-4 text-white"
+            className="h-4 w-4 text-neutral-100"
         >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M18 6l-12 12" />
