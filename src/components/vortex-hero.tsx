@@ -17,7 +17,7 @@ export function VortexHero() {
                 backgroundColor="black"
                 className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-full"
             >
-                <Badge variant="secondary" className="mb-4">
+                <Badge variant="default" className="mb-4">
                     Hi, I&apos;m Robert Havelaar 👋
                 </Badge>
                 <h1 className="text-neutral-100 text-2xl md:text-4xl font-bold text-center">
@@ -29,12 +29,13 @@ export function VortexHero() {
                 <div className="flex flex-col sm:flex-row items-center gap-4 mt-6">
                     <Link href="https://github.com/EastTexasElectronics" passHref>
                         <div
-                            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 transition duration-200 rounded-lg text-neutral-100 shadow-[0px_2px_0px_0px_#FFFFFF40_inset] cursor-pointer"
+                            className="px-4 py-2 bg-gradient-to-bl from-fuchsia-600 via-violet-600 to-blue-600 rounded-lg cursor-pointer hover:opacity-90 transition-opacity duration-200 border-r-10"
                             role="button"
                             aria-label="View my GitHub"
                         >
                             GitHub
                         </div>
+
                     </Link>
                     <Link href="mailto:rmhavelaar@gmail.com" passHref>
                         <div

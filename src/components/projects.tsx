@@ -4,13 +4,13 @@ import React, { useEffect, useId, useRef, useState, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 
-
 type Card = {
     description: string;
     title: string;
     src: string;
     ctaText: string;
     ctaLink: string;
+    ctaOpenText?: string;
     content: () => JSX.Element;
 };
 
@@ -20,115 +20,109 @@ const cards: Card[] = [
         title: "Nerd Stuff of Alabama's Website",
         src: "https://i.postimg.cc/p9y4fsSL/NSA-Logo.png",
         ctaText: "Explore",
+        ctaOpenText: "Visit Site",
         ctaLink: "https://alnerdstuff.com",
-        content: () => {
-            return (
-                <p>
-                    Nerd Stuff of Alabama is a growing collectables eCommerce buisness. They are currently using the Minion theme, which is a paid and well maintained theme.  I have modified the source code to add custom features and functionality. I activly maintain their website and provide support when issues arise.
-                </p>
-            );
-        },
+        content: () => (
+            <p>
+                Nerd Stuff of Alabama is a growing collectables eCommerce business. They are currently using the Minion theme, which is a paid and well-maintained theme. I have modified the source code to add custom features and functionality. I actively maintain their website and provide support when issues arise.
+            </p>
+        ),
     },
     {
         description: "iOS and Android eCommerce App",
         title: "Nerd Stuff of Alabama's Mobile App",
         src: "https://i.postimg.cc/p9y4fsSL/NSA-Logo.png",
         ctaText: "Explore",
-        ctaLink: "https://app.alnerdstuff.com",
-        content: () => {
-            return (
-                <p>
-                    Nerd Stuff of Alabama is a growing collectables eCommerce buisness. I am currently building their mobile application, the tech stack includes React Native, Expo, TailwindCSS, and the Shopify API. Once completed the template will be released as an open source project, for any new Shopify Developers.
-                </p>
-            );
-        },
+        ctaOpenText: "Repository",
+        ctaLink: "https://github.com/EastTexasElectronics/Nerd-Stuff-of-Alabama-Mobile-App/tree/main/nsa",
+        content: () => (
+            <p>
+                Nerd Stuff of Alabama is a growing collectables eCommerce business. I am currently building their mobile application, the tech stack includes React Native, Expo, TailwindCSS, and the Shopify API. Once completed the template will be released as an open-source project, for any new Shopify Developers.
+            </p>
+        ),
     },
     {
         description: "A CLI File Tree Generator tool written in many languages",
         title: "File Tree Generator Multiverse",
         src: "https://i.postimg.cc/Wd5xqBXy/FTG-Logo.png",
         ctaText: "Explore",
-        ctaLink: "/",
-        content: () => {
-            return (
-                <p>
-                    The FTG project is a Command Line tool that generates a file tree in the specified directory. It has been written in many languages and is available on GitHub.  I personally use the Golang version of the tool.
-                </p>
-            );
-        },
+        ctaOpenText: "Repository",
+        ctaLink: "https://github.com/EastTexasElectronics/File-Tree-Generator-Multiverse",
+        content: () => (
+            <p>
+                The FTG project is a Command Line tool that generates a file tree in the specified directory. It has been written in many languages and is available on GitHub. I personally use the Golang version of the tool.
+            </p>
+        ),
     },
     {
         description: "eCommerce Website",
         title: "East Texas Electronics LLC.",
         src: "https://i.postimg.cc/x13j0c9X/ETE-Logo.png",
         ctaText: "Explore",
+        ctaOpenText: "Visit Site",
         ctaLink: "/",
-        content: () => {
-            return (
-                <p>
-                    ETE is a small eCommerce and Electronics Repair shop in East Texas. I build, run, and maintain this website.
-                </p>
-            );
-        },
+        content: () => (
+            <p>
+                ETE is a small eCommerce and Electronics Repair shop in East Texas. I build, run, and maintain this website.
+            </p>
+        ),
     },
     {
         description: "A command line tool to bulk convert images to different formats",
         title: "Image Conversion Tool",
         src: "https://i.postimg.cc/hGYkgBQJ/IC-Logo.png",
         ctaText: "Explore",
-        ctaLink: "/",
-        content: () => {
-            return (
-                <p>
-                    Coming Soon! An open source secure client side browser based image converter.
-                </p>
-            );
-        },
+        ctaOpenText: "Repository",
+        ctaLink: "https://github.com/EastTexasElectronics/File-Tree-Generator-Multiverse",
+        content: () => (
+            <p>
+                Coming Soon! An open-source secure client-side browser-based image converter.
+            </p>
+        ),
     },
     {
         description: "A free Shopify theme for Shopify Liquid",
         title: "Shopify Liquid Theme",
         src: "https://i.postimg.cc/c1knSkXp/Shopify-Logo.png",
         ctaText: "Explore",
-        ctaLink: "/",
-        content: () => {
-            return (
-                <p>
-                    Coming Soon! An open source Shopify theme for Shopify Liquid.
-                </p>
-            );
-        },
+        ctaOpenText: "Repository",
+        ctaLink: "https://github.com/EastTexasElectronics/File-Tree-Generator-Multiverse",
+        content: () => (
+            <p>
+                Coming Soon! An open-source Shopify theme for Shopify Liquid.
+            </p>
+        ),
     },
     {
-        description: "Like this website?  Use it as a template for free!",
+        description: "Like this website? Use it as a template for free!",
         title: "Free t3 Stack Portfolio Template",
         src: "https://i.postimg.cc/vTwHY9x6/Portfolio-Logo.png",
         ctaText: "Explore",
+        ctaOpenText: "Repository",
         ctaLink: "https://github.com/EastTexasElectronics/portfolio",
-        content: () => {
-            return (
-                <p>
-                    This website is built using the t3 stack, with heavily customized components from Shadcn/ui and Aceternity. View the source code on GitHub.
-                </p>
-            );
-        },
+        content: () => (
+            <p>
+                This website is built using the t3 stack, with heavily customized components from Shadcn/ui and Aceternity. View the source code on GitHub.
+            </p>
+        ),
     },
     {
         description: "Stay tuned something exciting is coming soon!",
         title: "Coming Soon",
         src: "https://i.postimg.cc/4x0G4trN/Coming-Soon.png",
         ctaText: "Explore",
-        ctaLink: "/",
-        content: () => {
-            return (
-                <p>
-                    I have an exciting project in the works, stay tuned for updates!
-                </p>
-            );
-        },
+        ctaLink: "https://github.com/EastTexasElectronics/File-Tree-Generator-Multiverse",
+        content: () => (
+            <p>
+                I have an exciting project in the works, stay tuned for updates!
+            </p>
+        ),
     },
 ];
 
+/**
+ * Component to render the list of projects
+ */
 export function Projects() {
     const [active, setActive] = useState<Card | null>(null);
     const ref = useRef<HTMLDivElement>(null);
@@ -172,7 +166,7 @@ export function Projects() {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0, transition: { duration: 0.05 } }}
-                                className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-black rounded-full h-6 w-6"
+                                className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-black rounded-full h-6 w-6 z-[110]"
                                 onClick={() => setActive(null)}
                             >
                                 <CloseIcon />
@@ -182,14 +176,14 @@ export function Projects() {
                                 ref={ref}
                                 className="w-full max-w-[700px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-neutral-900 sm:rounded-3xl overflow-hidden"
                             >
-                                <motion.div layoutId={`image-${active.title}-${id}`}>
+                                <motion.div layoutId={`image-${active.title}-${id}`} className="relative w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg">
                                     <Image
                                         priority
-                                        width={200}
-                                        height={200}
                                         src={active.src}
                                         alt={active.title}
-                                        className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
+                                        fill
+                                        sizes="(max-width: 700px) 100vw, 700px"
+                                        className="object-contain"
                                     />
                                 </motion.div>
                                 <div>
@@ -212,9 +206,9 @@ export function Projects() {
                                             layoutId={`button-${active.title}-${id}`}
                                             href={active.ctaLink}
                                             target="_blank"
-                                            className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-neutral-100"
+                                            className="px-4 py-3 text-sm text-neutral-100 rounded-full font-bold bg-gradient-to-bl from-fuchsia-600 via-violet-600 to-blue-600 cursor-pointer hover:opacity-90 transition-opacity duration-200 text-center"
                                         >
-                                            {active.ctaText}
+                                            {active.ctaOpenText ?? active.ctaText}
                                         </motion.a>
                                     </div>
                                     <div className="pt-4 relative px-4">
@@ -244,14 +238,14 @@ export function Projects() {
                         onClick={() => setActive(card)}
                         className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-800 rounded-xl cursor-pointer w-full"
                     >
-                        <div className="flex gap-4 flex-col md:flex-row w-full">
-                            <motion.div layoutId={`image-${card.title}-${id}`}>
+                        <div className="flex gap-4 flex-col md:flex-row w-full items-center">
+                            <motion.div layoutId={`image-${card.title}-${id}`} className="relative h-40 w-40 md:h-14 md:w-14 rounded-lg">
                                 <Image
-                                    width={100}
-                                    height={100}
                                     src={card.src}
                                     alt={card.title}
-                                    className="h-40 w-40 md:h-14 md:w-14 rounded-lg object-cover object-top"
+                                    fill
+                                    sizes="(max-width: 56px) 100vw, 56px"
+                                    className="object-contain"
                                 />
                             </motion.div>
                             <div className="flex-1">
@@ -271,7 +265,7 @@ export function Projects() {
                         </div>
                         <motion.button
                             layoutId={`button-${card.title}-${id}`}
-                            className="px-4 py-2 text-sm rounded-full font-bold bg-gray-800 hover:bg-green-500 hover:text-neutral-100 text-neutral-100 mt-4 md:mt-0"
+                            className="px-4 py-2 text-sm rounded-full font-bold bg-gray-800 hover:bg-gradient-to-bl from-blue-600 via-purple-700 to-fuchsia-700 hover:text-neutral-100 text-neutral-100 mt-4 md:mt-0"
                         >
                             {card.ctaText}
                         </motion.button>
