@@ -99,6 +99,34 @@ const cards: Card[] = [
             );
         },
     },
+    {
+        description: "Like this website?  Use it as a template for free!",
+        title: "Free t3 Stack Portfolio Template",
+        src: "https://i.postimg.cc/vTwHY9x6/Portfolio-Logo.png",
+        ctaText: "Explore",
+        ctaLink: "https://github.com/EastTexasElectronics/portfolio",
+        content: () => {
+            return (
+                <p>
+                    This website is built using the t3 stack, with heavily customized components from Shadcn/ui and Aceternity. View the source code on GitHub.
+                </p>
+            );
+        },
+    },
+    {
+        description: "Stay tuned something exciting is coming soon!",
+        title: "Coming Soon",
+        src: "https://i.postimg.cc/4x0G4trN/Coming-Soon.png",
+        ctaText: "Explore",
+        ctaLink: "/",
+        content: () => {
+            return (
+                <p>
+                    I have an exciting project in the works, stay tuned for updates!
+                </p>
+            );
+        },
+    },
 ];
 
 export function Projects() {
