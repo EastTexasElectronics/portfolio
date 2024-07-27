@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useId, useRef, useState, useCallback } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { useOutsideClick } from "@/hooks/use-outside-click";
+import React, {useEffect, useId, useRef, useState, useCallback} from "react";
+import {AnimatePresence, motion} from "framer-motion";
+import {useOutsideClick} from "@/hooks/use-outside-click";
 
 type Card = {
     description: string;
@@ -24,7 +24,9 @@ const cards: Card[] = [
         ctaLink: "https://alnerdstuff.com",
         content: () => (
             <p>
-                Nerd Stuff of Alabama is a growing collectables eCommerce business. They are currently using the Minion theme, which is a paid and well-maintained theme. I have modified the source code to add custom features and functionality. I actively maintain their website and provide support when issues arise.
+                Nerd Stuff of Alabama is a growing collectables eCommerce business. They are currently using the Minion
+                theme, which is a paid and well-maintained theme. I have modified the source code to add custom features
+                and functionality. I actively maintain their website and provide support when issues arise.
             </p>
         ),
     },
@@ -37,12 +39,14 @@ const cards: Card[] = [
         ctaLink: "https://github.com/EastTexasElectronics/Nerd-Stuff-of-Alabama-Mobile-App/tree/main/nsa",
         content: () => (
             <p>
-                Nerd Stuff of Alabama is a growing collectables eCommerce business. I am currently building their mobile application, the tech stack includes React Native, Expo, TailwindCSS, and the Shopify API. Once completed the template will be released as an open-source project, for any new Shopify Developers.
+                Nerd Stuff of Alabama is a growing collectables eCommerce business. I am currently building their mobile
+                application, the tech stack includes React Native, Expo, TailwindCSS, and the Shopify API. Once
+                completed the template will be released as an open-source project, for any new Shopify Developers.
             </p>
         ),
     },
     {
-        description: "A CLI File Tree Generator tool written in many languages",
+        description: "A Command Line Tool File Tree Generator tool written in many languages",
         title: "File Tree Generator Multiverse",
         src: "https://i.postimg.cc/Wd5xqBXy/FTG-Logo.png",
         ctaText: "Explore",
@@ -50,7 +54,9 @@ const cards: Card[] = [
         ctaLink: "https://github.com/EastTexasElectronics/File-Tree-Generator-Multiverse",
         content: () => (
             <p>
-                The FTG project is a Command Line tool that generates a file tree in the specified directory. It has been written in many languages and is available on GitHub. I personally use the Golang version of the tool.
+                The FTG project is a Command Line tool that generates a file tree in the specified directory. It has
+                been written in many languages and is available on GitHub. I personally use the Golang version of the
+                tool.
             </p>
         ),
     },
@@ -63,20 +69,22 @@ const cards: Card[] = [
         ctaLink: "/",
         content: () => (
             <p>
-                ETE is a small eCommerce and Electronics Repair shop in East Texas. I build, run, and maintain this website.
+                ETE is a small eCommerce and Electronics Repair shop in East Texas. I build, run, and maintain this
+                website.
             </p>
         ),
     },
     {
-        description: "A command line tool to bulk convert images to different formats",
+        description: "A MacOS tool that converts SVG files into Shopify Liquid templates",
         title: "Image Conversion Tool",
         src: "https://i.postimg.cc/hGYkgBQJ/IC-Logo.png",
         ctaText: "Explore",
-        ctaOpenText: "Repository",
-        ctaLink: "https://github.com/EastTexasElectronics/File-Tree-Generator-Multiverse",
+        ctaOpenText: "Visit Site",
+        ctaLink: "/S2L",
         content: () => (
             <p>
-                Coming Soon! An open-source secure client-side browser-based image converter.
+                S2L is a macOS application made with Swift designed to simplify the process of converting SVG files into
+                Liquid template files, commonly used in Shopify theme development
             </p>
         ),
     },
@@ -102,7 +110,8 @@ const cards: Card[] = [
         ctaLink: "https://github.com/EastTexasElectronics/portfolio",
         content: () => (
             <p>
-                This website is built using the t3 stack, with heavily customized components from Shadcn/ui and Aceternity. View the source code on GitHub.
+                This website is built using the t3 stack, with heavily customized components from Shadcn/ui and
+                Aceternity. View the source code on GitHub.
             </p>
         ),
     },
@@ -154,29 +163,30 @@ export function Projects() {
                 {active && (
                     <>
                         <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
+                            initial={{opacity: 0}}
+                            animate={{opacity: 1}}
+                            exit={{opacity: 0}}
                             className="fixed inset-0 bg-black/20 h-full w-full z-10"
                         />
                         <div className="fixed inset-0 grid place-items-center z-[100]">
                             <motion.button
                                 key={`button-${active.title}-${id}`}
                                 layout
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0, transition: { duration: 0.05 } }}
+                                initial={{opacity: 0}}
+                                animate={{opacity: 1}}
+                                exit={{opacity: 0, transition: {duration: 0.05}}}
                                 className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-black rounded-full h-6 w-6 z-[110]"
                                 onClick={() => setActive(null)}
                             >
-                                <CloseIcon />
+                                <CloseIcon/>
                             </motion.button>
                             <motion.div
                                 layoutId={`card-${active.title}-${id}`}
                                 ref={ref}
                                 className="w-full max-w-[700px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-neutral-900 sm:rounded-3xl overflow-hidden"
                             >
-                                <motion.div layoutId={`image-${active.title}-${id}`} className="relative w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg">
+                                <motion.div layoutId={`image-${active.title}-${id}`}
+                                            className="relative w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg">
                                     <Image
                                         priority
                                         src={active.src}
@@ -214,9 +224,9 @@ export function Projects() {
                                     <div className="pt-4 relative px-4">
                                         <motion.div
                                             layout
-                                            initial={{ opacity: 0 }}
-                                            animate={{ opacity: 1 }}
-                                            exit={{ opacity: 0 }}
+                                            initial={{opacity: 0}}
+                                            animate={{opacity: 1}}
+                                            exit={{opacity: 0}}
                                             className="text-neutral-400 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
                                         >
                                             {typeof active.content === "function"
@@ -239,7 +249,8 @@ export function Projects() {
                         className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-800 rounded-xl cursor-pointer w-full"
                     >
                         <div className="flex gap-4 flex-col md:flex-row w-full items-center">
-                            <motion.div layoutId={`image-${card.title}-${id}`} className="relative h-40 w-40 md:h-14 md:w-14 rounded-lg">
+                            <motion.div layoutId={`image-${card.title}-${id}`}
+                                        className="relative h-40 w-40 md:h-14 md:w-14 rounded-lg">
                                 <Image
                                     src={card.src}
                                     alt={card.title}
@@ -279,9 +290,9 @@ export function Projects() {
 export const CloseIcon = () => {
     return (
         <motion.svg
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0, transition: { duration: 0.05 } }}
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0, transition: {duration: 0.05}}}
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -293,9 +304,9 @@ export const CloseIcon = () => {
             strokeLinejoin="round"
             className="h-4 w-4 text-neutral-100"
         >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M18 6l-12 12" />
-            <path d="M6 6l12 12" />
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M18 6l-12 12"/>
+            <path d="M6 6l12 12"/>
         </motion.svg>
     );
 };
