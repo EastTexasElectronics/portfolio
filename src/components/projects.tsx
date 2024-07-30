@@ -116,14 +116,16 @@ const cards: Card[] = [
         ),
     },
     {
-        description: "Stay tuned something exciting is coming soon!",
-        title: "Coming Soon",
-        src: "https://i.postimg.cc/4x0G4trN/Coming-Soon.png",
+        description: "SVG 2 Liquid",
+        title: "A macOS app to convert SVG files to Shopify Liquid templates",
+        src: "https://i.postimg.cc/zGrsZpSg/s2l-Logo.png",
         ctaText: "Explore",
-        ctaLink: "https://github.com/EastTexasElectronics/File-Tree-Generator-Multiverse",
+        ctaOpenText: "Learn More",
+        ctaLink: "https://roberthavelaar.com/S2L",
         content: () => (
             <p>
-                I have an exciting project in the works, stay tuned for updates!
+                Tired of manually converting SVG files to the Shopify Liquid template format manually? This is the app
+                for you, it allows bulk conversion and editing of your SVG files.
             </p>
         ),
     },
