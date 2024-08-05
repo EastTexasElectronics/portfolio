@@ -129,7 +129,7 @@ const ContactModal: React.FC<ContactModalProps> = () => {
             {/* Button to open the contact modal */}
             <Button
                 onClick={() => setIsOpen(true)}
-                className="fixed right-4 bottom-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg z-40"
+                className="fixed right-4 bottom-4 bg-gradient-to-bl from-fuchsia-600 via-violet-600 to-blue-600 rounded-full cursor-pointer hover:opacity-90 transition-opacity duration-200 border-r-10 text-white font-extrabold shadow-lg z-40"
                 aria-label="Open contact form"
             >
                 Contact Me

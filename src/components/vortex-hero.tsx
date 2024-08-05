@@ -1,10 +1,3 @@
-/**
- * Inspired by https://ui.aceternity.com/components/vortex
- * This is where you set the content for the hero section.
- * Please ensure you update the aria-label on the links to match the content.
- * Background color can be changed by changing the @param backgroundColor prop in the Vortex component src/components/ui/vortex.tsx on line 62.
- */
-
 import React from "react";
 import Vortex from "@/components/ui/vortex";
 import { Badge } from "@/components/ui/badge";

@@ -1,7 +1,3 @@
-/**
- * This file is from https://github.com/t3-oss/create-t3-app/blob/main/eslint.config.js
- */
-
 /** @type {import("eslint").Linter.Config} */
 const config = {
   parser: "@typescript-eslint/parser",

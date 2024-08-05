@@ -28,11 +28,6 @@ export function SkillsGrid() {
             icon: <IconCurrencyDollar aria-hidden="true" />,
         },
         {
-            title: "Small Business Websites",
-            description: "Designing and developing professional websites tailored to the unique needs of small businesses.",
-            icon: <IconAppWindow aria-hidden="true" />,
-        },
-        {
             title: "SaaS",
             description: "Creating Software as a Service (SaaS) applications that are efficient, reliable, and easy to use.",
             icon: <IconBoxMultiple9 aria-hidden="true" />,
@@ -47,14 +42,9 @@ export function SkillsGrid() {
             description: "Offering expert repair services for a wide range of electronic devices, from smartphones to laptops.",
             icon: <IconDeviceIpadCog aria-hidden="true" />,
         },
-        {
-            title: "Server Management",
-            description: "Managing and maintaining servers to ensure optimal performance and uptime for your applications.",
-            icon: <IconServer aria-hidden="true" />,
-        },
     ];
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 py-10 max-w-7xl mx-auto gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative z-10 py-10 w-full max-w-5xl mx-auto gap-6">
             {features.map((feature, index) => (
                 <Feature key={feature.title} {...feature} index={index} />
             ))}
@@ -77,14 +67,14 @@ const Feature = ({
         <div
             className={cn(
                 "flex flex-col items-center text-center lg:text-left lg:items-start lg:border-r py-10 relative group/feature",
-                (index === 0 || index === 4) && "lg:border-l",
-                index < 4 && "lg:border-b"
+                (index === 0 || index === 3 || index === 6) && "lg:border-l",
+                index < 6 && "lg:border-b"
             )}
         >
-            {index < 4 && (
+            {index < 6 && (
                 <div className="hidden lg:block opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-neutral-700 to-transparent pointer-events-none" />
             )}
-            {index >= 4 && (
+            {index >= 6 && (
                 <div className="hidden lg:block opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-700 to-transparent pointer-events-none" />
             )}
             <div className="mb-4 relative z-10 px-10 text-neutral-100">

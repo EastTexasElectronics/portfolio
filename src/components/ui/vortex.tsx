@@ -1,14 +1,13 @@
-/**
- * Inspired by https://ui.aceternity.com/components/vortex
- * Rewritten for better performance, type safety, and modularity.
- * Background color can be changed by changing the @param backgroundColor prop in the Vortex component on line 62.
- */
 'use client';
-import { cn } from "@/lib/utils";
-import React, { useEffect, useRef, useCallback } from "react";
-import { createNoise3D } from "simplex-noise";
-import { motion } from "framer-motion";
 
+import React, { useEffect, useRef, useCallback } from 'react';
+import { cn } from '@/lib/utils';
+import { createNoise3D } from 'simplex-noise';
+import { motion } from 'framer-motion';
+
+/**
+ * Properties for the Vortex component.
+ */
 interface VortexProps {
     children?: React.ReactNode;
     className?: string;
@@ -22,6 +21,7 @@ interface VortexProps {
     rangeRadius?: number;
     backgroundColor?: string;
 }
+
 const TAU = 2 * Math.PI;  // Full circle in radians
 
 const rand = (n: number): number => n * Math.random();
@@ -46,7 +46,7 @@ const lerp = (n1: number, n2: number, speed: number): number =>
 /**
  * Vortex component that renders a particle vortex animation.
  * @param {VortexProps} props - The properties for the Vortex component.
- * @returns The Vortex component.
+ * @returns {React.JSX.Element} The Vortex component.
  */
 const Vortex = ({
     children,
@@ -59,8 +59,8 @@ const Vortex = ({
     rangeSpeed = 1.5,
     baseRadius = 1,
     rangeRadius = 2,
-    backgroundColor = "#000000", // This is where you can change the background color
-}: VortexProps) => {
+    backgroundColor = '#000000', // This is where you can change the background color
+}: VortexProps): React.JSX.Element => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const tickRef = useRef(0);
@@ -136,7 +136,7 @@ const Vortex = ({
         ctx: CanvasRenderingContext2D
     ) => {
         ctx.save();
-        ctx.lineCap = "round";
+        ctx.lineCap = 'round';
         ctx.lineWidth = radius;
         ctx.strokeStyle = `hsla(${hue},100%,60%,${fadeInOut(life, ttl)})`;
         ctx.beginPath();
@@ -155,7 +155,6 @@ const Vortex = ({
      * Update a single particle.
      * @param i - The index of the particle.
      * @param ctx - The 2D rendering context of the canvas.
-     * @returns The updated particle.
      */
     const updateParticle = useCallback((i: number, ctx: CanvasRenderingContext2D) => {
         const canvas = canvasRef.current;
@@ -212,14 +211,14 @@ const Vortex = ({
      */
     const renderGlow = useCallback((canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => {
         ctx.save();
-        ctx.filter = "blur(8px) brightness(200%)";
-        ctx.globalCompositeOperation = "lighter";
+        ctx.filter = 'blur(8px) brightness(200%)';
+        ctx.globalCompositeOperation = 'lighter';
         ctx.drawImage(canvas, 0, 0);
         ctx.restore();
 
         ctx.save();
-        ctx.filter = "blur(4px) brightness(200%)";
-        ctx.globalCompositeOperation = "lighter";
+        ctx.filter = 'blur(4px) brightness(200%)';
+        ctx.globalCompositeOperation = 'lighter';
         ctx.drawImage(canvas, 0, 0);
         ctx.restore();
     }, []);
@@ -231,7 +230,7 @@ const Vortex = ({
      */
     const renderToScreen = useCallback((canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => {
         ctx.save();
-        ctx.globalCompositeOperation = "lighter";
+        ctx.globalCompositeOperation = 'lighter';
         ctx.drawImage(canvas, 0, 0);
         ctx.restore();
     }, []);
@@ -273,7 +272,7 @@ const Vortex = ({
         const canvas = canvasRef.current;
         const container = containerRef.current;
         if (canvas && container) {
-            const ctx = canvas.getContext("2d");
+            const ctx = canvas.getContext('2d');
 
             if (ctx) {
                 resize(canvas);
@@ -290,18 +289,18 @@ const Vortex = ({
         setup();
         const handleResize = () => {
             const canvas = canvasRef.current;
-            const ctx = canvas?.getContext("2d");
+            const ctx = canvas?.getContext('2d');
             if (canvas && ctx) {
                 resize(canvas);
             }
         };
 
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
     }, [setup, resize]);
 
     return (
-        <div className={cn("relative h-full w-full", containerClassName)}>
+        <div className={cn('relative h-full w-full', containerClassName)}>
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -311,7 +310,7 @@ const Vortex = ({
                 <canvas ref={canvasRef}></canvas>
             </motion.div>
 
-            <div className={cn("relative z-10", className)}>
+            <div className={cn('relative z-10', className)}>
                 {children}
             </div>
         </div>

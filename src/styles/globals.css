@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* This is where you can override default variables in the Tailwind CSS framework. */
+
 @layer base {
   :root {
     --background: 222.2 84% 4.9%;
@@ -38,4 +38,26 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.gradient-text {
+  background: linear-gradient(35deg, #2563eb, #7c3aed, #db2777);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.custom-underline {
+  position: relative;
+  text-decoration: none;
+}
+
+.custom-underline::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: linear-gradient(35deg, #2563eb, #7c3aed, #db2777);
 }

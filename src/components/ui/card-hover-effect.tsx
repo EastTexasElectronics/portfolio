@@ -1,13 +1,16 @@
 /**
- * Inspired by https://ui.aceternity.com/components/card-hover-effect
- * Rewritten for better performance, type safety, modularity, and current standards.
+ * This component is from https://ui.shadcn.com/docs/components/badge
+ * Rewritten for better performance, type safety, and modularity.
+ * To change color settings, please refer to your /styles/globals.css file.
  */
+
 'use client';
-import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
-import Link from "next/link";
-import { useState, useCallback } from "react";
-import type { ReactNode } from "react";
+
+import { cn } from '@/lib/utils';
+import { AnimatePresence, motion } from 'framer-motion';
+import Link from 'next/link';
+import { useState, useCallback } from 'react';
+import type { ReactNode } from 'react';
 
 // Define the item and props interfaces
 interface Item {
@@ -36,7 +39,15 @@ interface CardDescriptionProps {
     children: ReactNode;
 }
 
-export function HoverEffect({ items, className }: HoverEffectProps) {
+/**
+ * HoverEffect component that displays a grid of cards with hover effects.
+ *
+ * @param {HoverEffectProps} props - Props for the HoverEffect component.
+ * @param {Item[]} props.items - Array of items to display.
+ * @param {string} [props.className] - Additional class names for styling.
+ * @returns {React.JSX.Element} The rendered HoverEffect component.
+ */
+export function HoverEffect({ items, className }: HoverEffectProps): React.JSX.Element {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     const handleMouseEnter = useCallback((index: number) => {
@@ -48,7 +59,7 @@ export function HoverEffect({ items, className }: HoverEffectProps) {
     }, []);
 
     return (
-        <div className={cn("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10", className)}>
+        <div className={cn('grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10', className)}>
             {items.map((item, idx) => (
                 item.link ? (
                     <Link
@@ -105,11 +116,19 @@ export function HoverEffect({ items, className }: HoverEffectProps) {
     );
 }
 
-function Card({ className, children }: CardProps) {
+/**
+ * Card component that wraps content in a styled container.
+ *
+ * @param {CardProps} props - Props for the Card component.
+ * @param {string} [props.className] - Additional class names for styling.
+ * @param {ReactNode} props.children - Children elements.
+ * @returns {React.JSX.Element} The rendered Card component.
+ */
+function Card({ className, children }: CardProps): React.JSX.Element {
     return (
         <div
             className={cn(
-                "rounded-2xl h-full w-full p-4 overflow-hidden bg-gray-900 border border-transparent  group-hover:border-slate-700 relative z-20",
+                'rounded-2xl h-full w-full p-4 overflow-hidden bg-gray-900 border border-transparent  group-hover:border-slate-700 relative z-20',
                 className
             )}
         >
@@ -120,19 +139,33 @@ function Card({ className, children }: CardProps) {
     );
 }
 
-function CardTitle({ className, children }: CardTitleProps) {
+/**
+ * CardTitle component that displays a title for the card.
+ *
+ * @param {CardTitleProps} props - Props for the CardTitle component.
+ * @param {string} [props.className] - Additional class names for styling.
+ * @param {ReactNode} props.children - Children elements.
+ * @returns {React.JSX.Element} The rendered CardTitle component.
+ */
+function CardTitle({ className, children }: CardTitleProps): React.JSX.Element {
     return (
-        <h4 className={cn("text-neutral-200 text-center font-bold tracking-wide mt-4", className)}>
+        <h4 className={cn('text-neutral-200 text-center font-bold tracking-wide mt-4', className)}>
             {children}
         </h4>
     );
 }
 
-function CardDescription({ className, children }: CardDescriptionProps) {
+/**
+ * CardDescription component that displays a description for the card.
+ *
+ * @param {CardDescriptionProps} props - Props for the CardDescription component.
+ * @param {string} [props.className] - Additional class names for styling.
+ * @param {ReactNode} props.children - Children elements.
+ * @returns {React.JSX.Element} The rendered CardDescription component.
+ */
+function CardDescription({ className, children }: CardDescriptionProps): React.JSX.Element {
     return (
-        <p
-            className={cn("mt-8 text-neutral-400 tracking-wide leading-relaxed text-sm", className)}
-        >
+        <p className={cn('mt-8 text-neutral-400 tracking-wide leading-relaxed text-sm', className)}>
             {children}
         </p>
     );
