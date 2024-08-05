@@ -144,7 +144,7 @@ export function Projects(): React.JSX.Element {
                                     <motion.div layoutId={`image-${active.title}-${id}`}
                                         className="relative w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg">
                                         <Image
-                                            priority
+                                            // priority // Dont need this??
                                             src={active.src}
                                             alt={active.title}
                                             fill
@@ -210,9 +210,11 @@ export function Projects(): React.JSX.Element {
                                     <Image
                                         src={card.src}
                                         alt={card.title}
-                                        fill
-                                        sizes="(max-width: 56px) 100vw, 56px"
+                                        width={160}
+                                        height={160}
+                                        sizes="(max-width: 768px) 160px, 56px"
                                         className="object-contain"
+                                        priority
                                     />
                                 </motion.div>
                                 <div className="flex-1">

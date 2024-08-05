@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef, useCallback } from 'react';
+import React, { useEffect, useRef, useCallback, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { createNoise3D } from 'simplex-noise';
 import { motion } from 'framer-motion';
@@ -43,6 +43,23 @@ const fadeInOut = (t: number, m: number): number => {
 const lerp = (n1: number, n2: number, speed: number): number =>
     (1 - speed) * n1 + speed * n2;
 
+const useIsMobile = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    return isMobile;
+};
+
 /**
  * Vortex component that renders a particle vortex animation.
  * @param {VortexProps} props - The properties for the Vortex component.
@@ -59,8 +76,9 @@ const Vortex = ({
     rangeSpeed = 1.5,
     baseRadius = 1,
     rangeRadius = 2,
-    backgroundColor = '#000000', // This is where you can change the background color
+    backgroundColor = '#000000',
 }: VortexProps): React.JSX.Element => {
+    const isMobile = useIsMobile();
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const tickRef = useRef(0);
@@ -286,29 +304,33 @@ const Vortex = ({
      * Effect hook to set up and clean up the animation.
      */
     useEffect(() => {
-        setup();
+        if (!isMobile) {
+            setup();
+        }
         const handleResize = () => {
             const canvas = canvasRef.current;
             const ctx = canvas?.getContext('2d');
-            if (canvas && ctx) {
+            if (canvas && ctx && !isMobile) {
                 resize(canvas);
             }
         };
 
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
-    }, [setup, resize]);
+    }, [setup, resize, isMobile]);
 
     return (
-        <div className={cn('relative h-full w-full', containerClassName)}>
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                ref={containerRef}
-                className="absolute h-full w-full inset-0 z-0 bg-transparent flex items-center justify-center"
-            >
-                <canvas ref={canvasRef}></canvas>
-            </motion.div>
+        <div className={cn('relative h-full w-full vortex-container', containerClassName)}>
+            {!isMobile && (
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    ref={containerRef}
+                    className="absolute h-full w-full inset-0 z-0 bg-transparent flex items-center justify-center"
+                >
+                    <canvas ref={canvasRef}></canvas>
+                </motion.div>
+            )}
 
             <div className={cn('relative z-10', className)}>
                 {children}
