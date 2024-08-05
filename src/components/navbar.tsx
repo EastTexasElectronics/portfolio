@@ -1,5 +1,3 @@
-// src/components/Navbar.tsx
-
 "use client";
 
 import React, { useState, useRef } from 'react';
@@ -159,7 +157,7 @@ const Navbar = (): React.ReactNode => {
                     <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                         <Dropdown label="Active Projects & Tools" items={activeProjects} isMobile={true} />
                         <Dropdown label="Connect with Me" items={connectLinks} isMobile={true} />
-                        <Link href="https://buymeacoffee.com/rmhavelaar" className="px-3 py-2 rounded-md text-base font-medium text-neutral-200 hover:text-gray-400 flex items-center">
+                        <Link target='_blank' referrerPolicy='no-referrer' href="https://buymeacoffee.com/rmhavelaar" className="px-3 py-2 rounded-md text-base font-medium text-neutral-200 hover:text-gray-400 flex items-center">
                             Support Me <Coffee className="ml-2" size={16} />
                         </Link>
                     </div>

@@ -1,29 +1,53 @@
-# Create T3 App
+# Robert Havelaar's Portfolio - Powered by Create T3 Stack
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+Welcome to the repository for roberthavelaar.dev - a showcase of my full-stack software engineering open projects.
 
-## What's next? How do I make an app with this?
+## About This Site
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+This portfolio website is built on the cutting-edge Create T3 Stack, demonstrating my expertise in modern web development. The site features:
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+- A sleek, responsive design with a dark theme for optimal viewing
+- Interactive project showcases with smooth animations
+- Integration of various technologies and services
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+## Technology Stack
 
-## Learn More
+This project leverages a powerful and modern tech stack:
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+- **Next.js 14**: For server-side rendering and optimal performance
+- **React 18**: For building a dynamic and interactive user interface
+- **TypeScript**: For type-safe code and improved developer experience
+- **Tailwind CSS**: For rapid and responsive styling
+- **Prisma**: For type-safe database access
+- **Framer Motion**: For smooth animations and transitions
+- **Radix UI**: For accessible and customizable UI components
+- **Zod**: For runtime type checking and validation
+- **React Hook Form**: For efficient form handling
+- **Vercel**: For deployment and analytics
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+Additional technologies include:
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+- SendGrid for email functionality
+- Vercel Postgres for database storage
 
-## How do I deploy this?
+Component Libraries:
+I used a mix of of component that were built by myself, and some from Shadn/UI and Acertinity. All components have been customized to fit the theme and style of the site as well as refactored for better performance, typesafty and accessibility.
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+- Various Radix UI components for enhanced UI elements
+- Shadcn/UI
+- Acertinity
+
+## Featured Projects
+
+The site highlights several of public faci projects:
+
+1. **SVG 2 Liquid**: A macOS app for converting SVG files to Shopify Liquid templates
+2. **Nerd Stuff of Alabama's Website**: A Shopify Liquid eCommerce solution
+3. **Nerd Stuff of Alabama's Mobile App**: An iOS and Android eCommerce app
+4. **File Tree Generator Multiverse**: A command-line tool available in multiple programming languages
+
+## Get in Touch
+
+Interested in collaborating or learning more? The site provides easy ways to connect with Robert through GitHub and email <RMHavelaar@gmail.com>.
+
+Built with passion and powered by the Create T3 Stack. © 2023 Robert Havelaar

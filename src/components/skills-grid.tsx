@@ -1,9 +1,7 @@
 import { cn } from "@/lib/utils";
 import {
     IconDeviceIpadCog,
-    IconAppWindow,
     IconCurrencyDollar,
-    IconServer,
     IconHelp,
     IconBoxMultiple9,
     IconTerminal2,
