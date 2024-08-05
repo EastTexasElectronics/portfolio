@@ -10,7 +10,7 @@ import Navbar from "@/components/navbar";
 
 
 export const metadata: Metadata = {
-  title: "Robert Havelaar",
+  title: "RobertHavelaar.dev",
   description: "A portfolio of my work",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };

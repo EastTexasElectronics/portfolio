@@ -1,13 +1,24 @@
 // src/app/(Pages)/FileTreeGenerator/page.tsx
 import React from 'react';
 import { Button } from '@/components/ui/button';
+
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'File Tree Generator Multiverse',
-    description: 'A command-line utility for generating visual representations of directory tree structures in multiple programming languages.',
+    title: 'File Tree Generator',
+    description: 'A CLI tool for generating visual representations of directory tree structures in multiple programming languages.',
     keywords: 'file tree, directory structure, CLI tool, multiple programming languages',
-};
+    openGraph: {
+      title: 'File Tree Generator',
+      description: 'A CLI tool for generating visual representations of directory tree structures in multiple programming languages.',
+      images: [{
+        url: 'https://i.postimg.cc/K8KykhhX/s2l-Banner.png',
+        width: 800,
+        height: 200,
+        alt: 'S2L Logo',
+      }],
+    },
+  }
 
 const FileTreeGenerator = () => {
     const languages = [

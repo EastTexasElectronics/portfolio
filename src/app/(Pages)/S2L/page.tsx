@@ -5,6 +5,24 @@ import { S2LFeaturesGrid } from "@/components/s2l-features-grid";
 import { S2lTroubleshootingSection } from "@/components/s2l-troubleshooting-section";
 import { Button } from '@/components/ui/button';
 
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'SVG 2 Liquid',
+  description: 'A tool for converting SVG files to Shopify Liquid templates',
+  keywords: 'SVG, Shopify, Liquid, conversion, tool',
+  openGraph: {
+    title: 'SVG 2 Liquid',
+    description: 'A tool for converting SVG files to Shopify Liquid templates',
+    images: [{
+      url: 'https://i.postimg.cc/K8KykhhX/s2l-Banner.png',
+      width: 800,
+      height: 200,
+      alt: 'S2L Logo',
+    }],
+  },
+}
+
 const S2L = () => {
     return (
         <main className="container mx-auto px-4 py-10 bg-gradient-to-b from-gray-900 to-gray-800 text-white rounded-lg pt-20 max-w-5xl">
