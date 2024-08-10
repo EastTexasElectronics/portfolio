@@ -1,3 +1,4 @@
+// src/components/s2l-troubleshooting-section.tsx
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Link from "next/link";
 

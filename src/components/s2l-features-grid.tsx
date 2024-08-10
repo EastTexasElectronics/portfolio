@@ -1,3 +1,5 @@
+// src/components/s2l-features-grid.tsx
+
 import {HoverEffect} from "@/components/ui/card-hover-effect";
 
 export function S2LFeaturesGrid() {
