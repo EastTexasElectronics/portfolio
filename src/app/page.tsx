@@ -1,8 +1,8 @@
 /** Home Page */
 
-import { VortexHero } from "@/components/vortex-hero";
-import { SkillsGrid } from "@/components/skills-grid";
-import { Projects } from "@/components/projects";
+import { VortexHero } from "@/components/Home/vortex-hero";
+import { SkillsGrid } from "@/components/Home/skills-grid";
+import { Projects } from "@/components/Home/projects";
 
 import type { Metadata } from 'next'
 

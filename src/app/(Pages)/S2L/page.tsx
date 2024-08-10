@@ -1,8 +1,8 @@
 // src/app/(Pages)/S2L/page.tsx
 import React from 'react';
 import Image from 'next/image';
-import { S2LFeaturesGrid } from "@/components/s2l-features-grid";
-import { S2lTroubleshootingSection } from "@/components/s2l-troubleshooting-section";
+import { S2LFeaturesGrid } from "@/components/SVG2Liquid/s2l-features-grid";
+import { S2lTroubleshootingSection } from "@/components/SVG2Liquid/s2l-troubleshooting-section";
 import { Button } from '@/components/ui/button';
 
 import type { Metadata } from 'next'

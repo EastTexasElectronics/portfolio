@@ -3,10 +3,10 @@ import "@/styles/globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
-import ContactModal from "@/components/ContactModal";
+import ContactModal from "@/components/Global/ContactModal";
 import React from "react";
 import { Toaster } from "@/components/ui/toaster"
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/Global/navbar";
 
 
 export const metadata: Metadata = {
