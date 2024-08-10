@@ -67,17 +67,30 @@ const cards: Card[] = [
         ),
     },
     {
-        description: "A Command Line Tool File Tree Generator tool written in many languages",
+        description: "A CLI File Tree Generator tool written in various languages",
         title: 'File Tree Generator Multiverse',
         src: 'https://i.postimg.cc/Wd5xqBXy/FTG-Logo.png',
         ctaText: 'Explore',
         ctaOpenText: 'Repository',
-        ctaLink: '/File_Tree_Generator',
+        ctaLink: '/file-tree-generator-multiverse',
         content: () => (
             <p>
                 The FTG project is a Command Line tool that generates a file tree in the specified directory. It has
                 been written in many languages and is available on GitHub. I personally use the Golang version of the
                 tool.
+            </p>
+        ),
+    },
+    {
+        description: "Create visual representations of directory tree structures",
+        title: 'File Tree Generator MacOS App',
+        src: 'https://i.postimg.cc/8Pj31PkV/FTG-Icon.png',
+        ctaText: 'Explore',
+        ctaOpenText: 'Repository',
+        ctaLink: '/file-tree-generator-app',
+        content: () => (
+            <p>
+                The File Tree Generator is a macOS app that creates Markdown or TXT formatted file trees from your directories, with options for excluding specific patterns and formats. All in an easy to use interface.
             </p>
         ),
     },
