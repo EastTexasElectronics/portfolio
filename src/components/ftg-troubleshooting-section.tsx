@@ -7,6 +7,18 @@ export function FTGTroubleshootingSection() {
     return (
         <div className="max-w-5xl mx-auto px-8">
             <Accordion type="single" collapsible>
+            <AccordionItem value="item-1">
+                    <AccordionTrigger>Permission Issues:</AccordionTrigger>
+                    <AccordionContent>
+                        If you are encountering permission issues, ensure that you have granted Full Disk Access to the app. You can do this by going to your macOs settings and selecting the File Tree Generator app. This isnt required in all cases, but depending on your configuration it may be required.
+                    </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-1">
+                    <AccordionTrigger>Manual Path Entry:</AccordionTrigger>
+                    <AccordionContent>
+                        If you would like to manually type in the path to the input directory, ensure that you have read and write permissions for the directory. You will need to go to your macOs settings to grant Full Disk Access to the app.
+                    </AccordionContent>
+                </AccordionItem>
                 <AccordionItem value="item-1">
                     <AccordionTrigger>No files found in directory:</AccordionTrigger>
                     <AccordionContent>

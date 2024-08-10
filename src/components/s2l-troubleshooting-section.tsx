@@ -6,6 +6,7 @@ export function S2lTroubleshootingSection() {
     return (
         <div className="max-w-5xl mx-auto px-8">
             <Accordion type="single" collapsible>
+                
                 <AccordionItem value="item-1">
                     <AccordionTrigger>No SVG files found:</AccordionTrigger>
                     <AccordionContent>

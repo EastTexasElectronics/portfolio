@@ -20,9 +20,7 @@ const FTGApp = () => {
     return (
         <main className="container mx-auto px-4 py-10 bg-gradient-to-b from-gray-900 to-gray-800 text-white rounded-lg pt-20 max-w-5xl">
             <header className="text-center mb-16">
-                {/* TODO: Replace with the Text Title File Tree Generator */}
-                <Image src="https://i.postimg.cc/K8KykhhX/s2l-Banner.png" alt="File Tree Generator Banner Logo" width={800}
-                    height={200} className="mx-auto" />
+                <h1 className='text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-fuchsia-600'>File Tree Generator</h1>
                 <div className="mt-8">
                     <a href="https://apps.apple.com/app/file-tree-generator/id6621270239" target="_blank"
                         rel="noopener noreferrer">
@@ -37,7 +35,7 @@ const FTGApp = () => {
                 <nav aria-label="Table of contents" className="bg-gray-700 p-6 rounded-lg shadow-inner">
                     <h2 className="text-3xl font-bold mb-6 text-center text-blue-300">Table of Contents</h2>
                     <ul className="grid grid-cols-2 gap-4 list-none pl-0">
-                        {['overview', 'features', 'help-guide', 'accessing-help', 'troubleshooting', 'report-issues'].map((item) => (
+                        {['overview', 'features', 'help', 'contact', 'troubleshooting', 'report-issues'].map((item) => (
                             <li key={item}>
                                 <Button asChild variant="link" size="lg" className="w-full bg-gray-600 hover:bg-gray-500 transition-colors duration-200">
                                     <a href={`#${item}`}>{item.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</a>
@@ -52,7 +50,7 @@ const FTGApp = () => {
                     <FTGFeaturesGrid />
                 </section>
 
-                <section id="help-guide" className="bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <section id="help" className="bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
                     <h2 className="text-3xl font-semibold mb-6 text-blue-300 text-center">Help Guide</h2>
 
                     {[
@@ -61,14 +59,14 @@ const FTGApp = () => {
                             steps: [
                                 "Launching the App: Open File Tree Generator from your Applications folder.",
                                 "Selecting Input Directory: Click on the \"Select Directory\" button to choose a directory. The app will scan this directory to generate the file tree.",
-                                "Selecting Output File: Choose the location and format for the output file where the file tree will be saved."
+                                "Selecting Output File: Choose the location and format for the output file where the file tree will be saved. By defailt, the file will be saved in the input directory."
                             ]
                         },
                         {
                             title: "Using Exclusion Patterns",
                             steps: [
-                                "Pre-set Exclusions: Use the 'Select Languages/Frameworks' button to exclude common files and directories.",
-                                "Custom Exclusions: Enter custom patterns in the 'Exclusion Patterns' text field to exclude specific files or directories."
+                                "Pre-set Exclusions: Use the 'Select Languages/Frameworks' button to exclude common files and directories. You can select as many as you would like.",
+                                "Custom Exclusions: Enter custom patterns in the 'Exclusion Patterns' text field to exclude specific files or directories. Using comma-separated patterns is requried ex.(node_modules,.vscode)."
                             ]
                         },
                         {
@@ -95,7 +93,7 @@ const FTGApp = () => {
                     <FTGTroubleshootingSection />
                 </section>
 
-                <section id="accessing-help" className="bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <section id="contact" className="bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
                     <h2 className="text-3xl font-semibold mb-6 text-blue-300 text-center">Get Support</h2>
                     <ol className="list-decimal pl-6 space-y-4">
                         <li><strong>Help Modal:</strong> Click on the &quot;Help&quot; button in the header to open the help modal. This contains detailed information about using the app.</li>
