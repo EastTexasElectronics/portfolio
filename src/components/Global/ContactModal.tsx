@@ -5,7 +5,7 @@ import {useForm} from 'react-hook-form'
 import axios from 'axios'
 import {zodResolver} from '@hookform/resolvers/zod'
 import * as z from 'zod'
-import {Button} from '@/components/ui/button'
+import {Button} from '../../components/ui/button'
 import {
     Form,
     FormControl,
@@ -13,18 +13,18 @@ import {
     FormItem,
     FormLabel,
     FormMessage,
-} from '@/components/ui/form'
-import {Input} from '@/components/ui/input'
-import {Textarea} from '@/components/ui/textarea'
+} from '../../components/ui/form'
+import {Input} from '../../components/ui/input'
+import {Textarea} from '../../components/ui/textarea'
 import {
     Select,
     SelectContent,
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from '@/components/ui/select'
+} from '../../components/ui/select'
 import {X} from 'lucide-react'
-import {toast} from '@/components/ui/use-toast'
+import {toast} from '../../components/ui/use-toast'
 
 /**
  * Zod schema for form validation

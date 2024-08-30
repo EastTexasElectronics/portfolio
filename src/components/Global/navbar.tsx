@@ -3,7 +3,7 @@
 import React, { useState, useRef } from 'react';
 import { Menu, X, ChevronDown, Coffee, Mail } from 'lucide-react';
 import Link from 'next/link';
-import { useOutsideClick } from '@/hooks/use-outside-click';
+import { useOutsideClick } from '../../hooks/use-outside-click';
 
 interface DropdownItem {
     name: string;
