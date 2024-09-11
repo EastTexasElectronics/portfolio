@@ -72,7 +72,7 @@ const cards: Card[] = [
         src: 'https://i.postimg.cc/Wd5xqBXy/FTG-Logo.png',
         ctaText: 'Explore',
         ctaOpenText: 'Repository',
-        ctaLink: '/file-tree-generator-multiverse',
+        ctaLink: '/file-tree-generator-app',
         content: () => (
             <p>
                 The FTG project is a Command Line tool that generates a file tree in the specified directory. It has
@@ -157,7 +157,6 @@ export function Projects(): React.JSX.Element {
                                     <motion.div layoutId={`image-${active.title}-${id}`}
                                         className="relative w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg">
                                         <Image
-                                            // priority // Dont need this??
                                             src={active.src}
                                             alt={active.title}
                                             fill

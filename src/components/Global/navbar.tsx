@@ -111,7 +111,7 @@ const Navbar = (): React.ReactNode => {
 
     const activeProjects = [
         { name: 'SVG 2 Liquid', href: '/S2L' },
-        { name: 'File Tree Generator', href: '/File_Tree_Generator' },
+        { name: 'File Tree Generator', href: '/file-tree-generator-app' },
         { name: 'ServeCommerce (Coming Soon)', href: '/' },
     ];
 
