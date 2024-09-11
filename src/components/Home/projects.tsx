@@ -23,12 +23,12 @@ type Card = {
  */
 const cards: Card[] = [
     {
-        description: 'A macOS app to convert SVG files to Shopify Liquid templates',
+        description: 'A macOS app to convert SVG files to Shopify Liquid Templates',
         title: 'SVG 2 Liquid',
         src: 'https://i.postimg.cc/zGrsZpSg/s2l-Logo.png',
         ctaText: 'Explore',
         ctaOpenText: 'Learn More',
-        ctaLink: 'https://roberthavelaar.com/S2L',
+        ctaLink: 'https://roberthavelaar.dev/S2L',
         content: () => (
             <p>
                 Tired of manually converting SVG files to the Shopify Liquid template format manually? This is the app
@@ -37,8 +37,8 @@ const cards: Card[] = [
         ),
     },
     {
-        description: "Shopify Liquid eCommerce",
-        title: "Nerd Stuff of Alabama's Website",
+        description: "Shopify eCommerce website and mobile app",
+        title: "Nerd Stuff of Alabama",
         src: 'https://i.postimg.cc/p9y4fsSL/NSA-Logo.png',
         ctaText: 'Explore',
         ctaOpenText: 'Visit Site',
@@ -47,22 +47,20 @@ const cards: Card[] = [
             <p>
                 Nerd Stuff of Alabama is a growing collectables eCommerce business. They are currently using the Minion
                 theme, which is a paid and well-maintained theme. I have modified the source code to add custom features
-                and functionality. I actively maintain their website and provide support when issues arise.
+                and functionality. I actively maintain their website and provide support when issues arise. I also created a reach native expo app tapping into the Shopify API.
             </p>
         ),
     },
     {
-        description: "iOS and Android eCommerce App",
-        title: "Nerd Stuff of Alabama's Mobile App",
-        src: 'https://i.postimg.cc/p9y4fsSL/NSA-Logo.png',
+        description: "A SaaS platform for creating business reports",
+        title: "AiCaseReport.com",
+        src: 'https://i.postimg.cc/p9y4fsSL/NSA-Logo.png', // TODO: Replace with correct logo
         ctaText: 'Explore',
-        ctaOpenText: 'Repository',
-        ctaLink: 'https://github.com/EastTexasElectronics/Nerd-Stuff-of-Alabama-Mobile-App/tree/main/nsa',
+        ctaOpenText: 'Visit Site',
+        ctaLink: 'https://aicasereport.com',
         content: () => (
             <p>
-                Nerd Stuff of Alabama is a growing collectables eCommerce business. I am currently building their mobile
-                application, the tech stack includes React Native, Expo, TailwindCSS, and the Shopify API. Once
-                completed the template will be released as an open-source project, for any new Shopify Developers.
+             {/* TODO: add content */}
             </p>
         ),
     },
@@ -72,7 +70,7 @@ const cards: Card[] = [
         src: 'https://i.postimg.cc/Wd5xqBXy/FTG-Logo.png',
         ctaText: 'Explore',
         ctaOpenText: 'Repository',
-        ctaLink: '/file-tree-generator-app',
+        ctaLink: 'https://github.com/EastTexasElectronics/File-Tree-Generator-Multiverse',
         content: () => (
             <p>
                 The FTG project is a Command Line tool that generates a file tree in the specified directory. It has
@@ -91,6 +89,19 @@ const cards: Card[] = [
         content: () => (
             <p>
                 The File Tree Generator is a macOS app that creates Markdown or TXT formatted file trees from your directories, with options for excluding specific patterns and formats. All in an easy to use interface.
+            </p>
+        ),
+    },
+    {
+        description: "Interested in checking out the source code for this portfolio?",
+        title: 'My Portfolio',
+        src: 'https://i.postimg.cc/8Pj31PkV/FTG-Icon.png',
+        ctaText: 'Explore',
+        ctaOpenText: 'Repository',
+        ctaLink: 'https://github.com/EastTexasElectronics/roberthavelaar.dev',
+        content: () => (
+            <p>
+                This website was build with the T3 stack using Next.js, TailwindCSS, and Supabase.
             </p>
         ),
     },
