@@ -150,8 +150,8 @@ const Section = ({ children, className }) => {
 export default function Component() {
   return (
     <div className="min-h-screen  text-white overflow-hidden relative">
-      <BackgroundBeams />
       <main className="container mx-auto px-4 py-8 relative z-10">
+      <BackgroundBeams />
         <Section className="py-12 md:py-24 lg:py-32 xl:py-48 text-center">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4">

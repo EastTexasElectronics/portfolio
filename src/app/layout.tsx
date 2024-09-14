@@ -27,7 +27,6 @@ export default function RootLayout({
       </head>
       <body className="bg-black">
         <Navbar />
-        <BackgroundBeams />
         {children}
         <ContactModal />
         <Toaster />
