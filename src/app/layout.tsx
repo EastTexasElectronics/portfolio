@@ -1,12 +1,13 @@
 // src/app/layout.tsx
-import "../styles/globals.css";
+import "@/styles/globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
-import ContactModal from "../components/Global/ContactModal";
+import ContactModal from "@/components/Global/ContactModal";
 import React from "react";
-import { Toaster } from "../components/ui/toaster"
-import Navbar from "../components/Global/navbar";
+import { Toaster } from "@/components/ui/toaster"
+import Navbar from "@/components/Global/navbar";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 
 
 export const metadata: Metadata = {
@@ -26,6 +27,7 @@ export default function RootLayout({
       </head>
       <body className="bg-black">
         <Navbar />
+        <BackgroundBeams />
         {children}
         <ContactModal />
         <Toaster />
