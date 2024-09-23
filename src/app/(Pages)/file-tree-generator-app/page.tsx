@@ -123,14 +123,19 @@ const FadeInAnimation = {
   }
 }
 
-const Section = ({ children, className }) => {
+interface Props {
+  className: string;
+  children: React.ReactNode;
+}
+
+const Section: React.FC<Props> = ({ className, children }) => {
   const controls = useAnimation()
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, amount: 0.3 })
 
   useEffect(() => {
     if (inView) {
-      controls.start("visible")
+      void controls.start("visible")
     }
   }, [controls, inView])
 

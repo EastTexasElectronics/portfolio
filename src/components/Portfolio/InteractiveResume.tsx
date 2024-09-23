@@ -224,9 +224,7 @@ const InteractiveResume = () => {
           <TabsContent key={category} value={category} className="mt-4">
             <div className="grid grid-cols-3 gap-4">
               {resumeData.skills[category].map((skill, index) => {
-                const IconComponent =
-                  LucideIcons[skill.icon as keyof typeof LucideIcons] ||
-                  LucideIcons.Code;
+                const IconComponent = (LucideIcons[skill.icon as keyof typeof LucideIcons] || LucideIcons.Code) as React.ElementType;
                 return (
                   <motion.div
                     key={index}
