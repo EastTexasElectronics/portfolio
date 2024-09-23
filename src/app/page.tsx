@@ -1,6 +1,6 @@
 /** Home Page */
 
-import { VortexHero } from "@/components/Home/vortex-hero";
+import { Hero } from "@/components/Home/vortex-hero";
 import { SkillsGrid } from "@/components/Home/skills-grid";
 import { Projects } from "@/components/Home/projects";
 
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main>
-      <VortexHero />
+      <Hero />
       <Projects />
       <SkillsGrid />
     </main>
