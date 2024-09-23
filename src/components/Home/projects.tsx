@@ -4,6 +4,7 @@ import Image from 'next/image';
 import React, { useEffect, useId, useRef, useState, useCallback } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useOutsideClick } from '@/hooks/use-outside-click';
+import { track } from '@vercel/analytics';
 
 /**
  * Type definition for a Card.
@@ -156,7 +157,10 @@ export function Projects(): React.JSX.Element {
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0, transition: { duration: 0.05 } }}
                                     className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-black rounded-full h-6 w-6 z-[110]"
-                                    onClick={() => setActive(null)}
+                                    onClick={() => {
+                                        setActive(null);
+                                        track('Button Pressed', { button: 'Close Modal', title: active.title });
+                                    }}
                                 >
                                     <CloseIcon />
                                 </motion.button>
@@ -196,6 +200,7 @@ export function Projects(): React.JSX.Element {
                                                 href={active.ctaLink}
                                                 target="_blank"
                                                 className="px-4 py-3 text-sm text-neutral-100 rounded-full font-bold bg-gradient-to-bl from-fuchsia-600 via-violet-600 to-blue-600 cursor-pointer hover:opacity-90 transition-opacity duration-200 text-center"
+                                                onClick={() => track('Button Pressed', { button: active.ctaOpenText ?? active.ctaText, title: active.title })}
                                             >
                                                 {active.ctaOpenText ?? active.ctaText}
                                             </motion.a>
@@ -224,7 +229,10 @@ export function Projects(): React.JSX.Element {
                         <motion.div
                             layoutId={`card-${card.title}-${id}`}
                             key={`card-${card.title}-${id}`}
-                            onClick={() => setActive(card)}
+                            onClick={() => {
+                                setActive(card);
+                                track('Button Pressed', { button: card.ctaText, title: card.title });
+                            }}
                             className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-800 rounded-xl cursor-pointer w-full"
                         >
                             <div className="flex gap-4 flex-col md:flex-row w-full items-center">
@@ -258,6 +266,7 @@ export function Projects(): React.JSX.Element {
                             <motion.button
                                 layoutId={`button-${card.title}-${id}`}
                                 className="px-4 py-2 text-sm rounded-full font-bold bg-gray-800 hover:bg-gradient-to-bl from-blue-600 via-purple-700 to-fuchsia-700 hover:text-neutral-100 text-neutral-100 mt-4 md:mt-0"
+                                onClick={() => track('Button Pressed', { button: card.ctaText, title: card.title })}
                             >
                                 {card.ctaText}
                             </motion.button>
