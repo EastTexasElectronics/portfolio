@@ -130,7 +130,10 @@ const InteractiveResume = () => {
                 <div className="absolute left-0 top-2 h-3 w-3 rounded-full bg-blue-500"></div>
                 <Card
                   className="transform cursor-pointer border-gray-800 bg-gray-900 transition-all duration-300 hover:scale-105 hover:from-gray-700 hover:to-gray-800"
-                  onClick={() => setSelectedJob(job)}
+                  onClick={() => {
+                    setSelectedJob(job);
+                    track('Modal Opened', { modal: 'Job Details', jobTitle: job.title });
+                  }}
                 >
                   <CardHeader>
                     <CardTitle className="text-white">{job.title}</CardTitle>
@@ -172,7 +175,10 @@ const InteractiveResume = () => {
                 <div className="absolute left-0 top-2 h-3 w-3 rounded-full bg-blue-500"></div>
                 <Card
                   className="transform cursor-pointer border-gray-800 bg-gray-900 transition-all duration-300 hover:scale-105 hover:from-gray-700 hover:to-gray-800"
-                  onClick={() => setSelectedEducation(edu)}
+                  onClick={() => {
+                    setSelectedEducation(edu);
+                    track('Modal Opened', { modal: 'Education Details', degree: edu.degree });
+                  }}
                 >
                   <CardHeader>
                     <CardTitle className="text-white">{edu.degree}</CardTitle>
@@ -234,7 +240,10 @@ const InteractiveResume = () => {
                   >
                     <Card
                       className="flex h-24 transform cursor-pointer items-center justify-center border-gray-800 bg-gray-900 p-2 transition-all duration-300 hover:scale-105 hover:from-gray-700 hover:to-gray-800"
-                      onClick={() => setSelectedSkill(skill)}
+                      onClick={() => {
+                        setSelectedSkill(skill);
+                        track('Modal Opened', { modal: 'Skill Details', skillName: skill.name });
+                      }}
                     >
                       <div className="flex flex-col items-center space-y-2">
                         <IconComponent className="h-8 w-8 flex-shrink-0 text-blue-400" />
@@ -277,6 +286,7 @@ const InteractiveResume = () => {
                 <Button
                   variant="link"
                   className="p-0 text-blue-400 hover:text-blue-300"
+                  onClick={() => track('Button Pressed', { button: 'View Project', projectName: project.name })}
                 >
                   <a
                     href={project.link}

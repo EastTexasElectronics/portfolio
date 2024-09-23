@@ -1,11 +1,15 @@
 // src/components/s2l-features-grid.tsx
 
 import {HoverEffect} from "@/components/ui/card-hover-effect";
+import { track } from '@vercel/analytics';
 
 export function S2LFeaturesGrid() {
     return (
         <div className="max-w-5xl mx-auto px-8">
-            <HoverEffect items={projects}/>
+            <HoverEffect items={projects.map(project => ({
+                ...project,
+                onClick: () => track('Feature Clicked', { title: project.title })
+            }))} />
         </div>
     );
 }
