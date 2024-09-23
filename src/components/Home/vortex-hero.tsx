@@ -100,6 +100,7 @@ export function Hero() {
       <div className="absolute inset-0 z-0">
         <motion.div
           className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20"
+          initial={{ background: "radial-gradient(circle, rgba(59,130,246,0.2) 0%, rgba(0,0,0,0) 50%)" }} // Set initial background
           animate={{
             background: [
               "radial-gradient(circle, rgba(59,130,246,0.2) 0%, rgba(0,0,0,0) 50%)",
