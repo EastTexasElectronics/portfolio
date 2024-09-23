@@ -226,16 +226,15 @@ export function Projects(): React.JSX.Element {
                 </AnimatePresence>
                 <ul className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-6">
                     {cards.map((card) => (
-                        <motion.div
-                            layoutId={`card-${card.title}-${id}`}
-                            key={`card-${card.title}-${id}`}
-                            onClick={() => {
-                                setActive(card);
-                                track('Button Pressed', { button: card.ctaText, title: card.title });
-                            }}
-                            className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-800 rounded-xl cursor-pointer w-full"
-                        >
-                            <div className="flex gap-4 flex-col md:flex-row w-full items-center">
+                        <li key={`card-${card.title}-${id}`} className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-800 rounded-xl cursor-pointer w-full">
+                            <motion.div
+                                layoutId={`card-${card.title}-${id}`}
+                                onClick={() => {
+                                    setActive(card);
+                                    track('Button Pressed', { button: card.ctaText, title: card.title });
+                                }}
+                                className="flex gap-4 flex-col md:flex-row w-full items-center"
+                            >
                                 <motion.div layoutId={`image-${card.title}-${id}`}
                                     className="relative h-40 w-40 md:h-14 md:w-14 rounded-lg">
                                     <Image
@@ -249,12 +248,12 @@ export function Projects(): React.JSX.Element {
                                     />
                                 </motion.div>
                                 <div className="flex-1">
-                                    <motion.h3
+                                    <motion.h2
                                         layoutId={`title-${card.title}-${id}`}
                                         className="font-medium text-neutral-200 text-center md:text-left"
                                     >
                                         {card.title}
-                                    </motion.h3>
+                                    </motion.h2>
                                     <motion.p
                                         layoutId={`description-${card.description}-${id}`}
                                         className="text-neutral-400 text-center md:text-left"
@@ -262,7 +261,7 @@ export function Projects(): React.JSX.Element {
                                         {card.description}
                                     </motion.p>
                                 </div>
-                            </div>
+                            </motion.div>
                             <motion.button
                                 layoutId={`button-${card.title}-${id}`}
                                 className="px-4 py-2 text-sm rounded-full font-bold bg-gray-800 hover:bg-gradient-to-bl from-blue-600 via-purple-700 to-fuchsia-700 hover:text-neutral-100 text-neutral-100 mt-4 md:mt-0"
@@ -270,7 +269,7 @@ export function Projects(): React.JSX.Element {
                             >
                                 {card.ctaText}
                             </motion.button>
-                        </motion.div>
+                        </li>
                     ))}
                 </ul>
             </div>
