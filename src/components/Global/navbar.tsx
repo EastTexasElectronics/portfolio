@@ -4,7 +4,6 @@ import React, { useState, useRef } from 'react';
 import { Menu, X, ChevronDown, Coffee, Mail } from 'lucide-react';
 import Link from 'next/link';
 import { useOutsideClick } from '../../hooks/use-outside-click';
-import { track } from '@vercel/analytics';
 
 interface DropdownItem {
     name: string;
@@ -35,7 +34,6 @@ const Dropdown = ({ label, items, isMobile = false }: DropdownProps): React.Reac
 
     const toggleDropdown = () => {
         setDropdownOpen(!dropdownOpen);
-        track('Dropdown Toggled', { label, isOpen: !dropdownOpen });
     };
 
     /**
@@ -91,7 +89,6 @@ const Dropdown = ({ label, items, isMobile = false }: DropdownProps): React.Reac
                                 href={item.href}
                                 className="px-4 py-2 text-sm text-neutral-200 hover:bg-gray-700 hover:text-white flex items-center"
                                 role="menuitem"
-                                onClick={() => track('Link Clicked', { label: item.name, href: item.href })}
                             >
                                 {getIcon(item.name)}
                                 {item.name}
@@ -129,7 +126,7 @@ const Navbar = (): React.ReactNode => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
-                        <Link href="/" className="text-2xl font-bold text-neutral-200" onClick={() => track('Link Clicked', { label: 'Home', href: '/' })}>
+                        <Link href="/" className="text-2xl font-bold text-neutral-200">
                             robert<span className="custom-underline">havelaar</span><span className="gradient-text">.dev</span>
                         </Link>
                     </div>
@@ -137,17 +134,14 @@ const Navbar = (): React.ReactNode => {
                         <div className="ml-10 flex items-center justify-center space-x-4">
                             <Dropdown label="Active Projects & Tools" items={activeProjects} />
                             <Dropdown label="Connect with me" items={connectLinks} />
-                            <Link href="https://buymeacoffee.com/rmhavelaar" className="text-neutral-200 hover:text-gray-400 flex items-center" onClick={() => track('Link Clicked', { label: 'Support Me', href: 'https://buymeacoffee.com/rmhavelaar' })}>
+                            <Link href="https://buymeacoffee.com/rmhavelaar" className="text-neutral-200 hover:text-gray-400 flex items-center">
                                 Support Me <Coffee className="ml-2" size={16} />
                             </Link>
                         </div>
                     </div>
                     <div className="-mr-2 flex md:hidden">
                         <button
-                            onClick={() => {
-                                setMenuOpen(!menuOpen);
-                                track('Menu Toggled', { isOpen: !menuOpen });
-                            }}
+                            onClick={() => setMenuOpen(!menuOpen)}
                             aria-label={menuOpen ? "Close menu" : "Open menu"}
                             aria-expanded={menuOpen}
                             className="inline-flex items-center justify-center p-2 rounded-md text-neutral-200 hover:text-gray-400 focus:outline-none"
@@ -163,7 +157,7 @@ const Navbar = (): React.ReactNode => {
                     <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                         <Dropdown label="Active Projects & Tools" items={activeProjects} isMobile={true} />
                         <Dropdown label="Connect with Me" items={connectLinks} isMobile={true} />
-                        <Link target='_blank' referrerPolicy='no-referrer' href="https://buymeacoffee.com/rmhavelaar" className="px-3 py-2 rounded-md text-base font-medium text-neutral-200 hover:text-gray-400 flex items-center" onClick={() => track('Link Clicked', { label: 'Support Me', href: 'https://buymeacoffee.com/rmhavelaar' })}>
+                        <Link target='_blank' referrerPolicy='no-referrer' href="https://buymeacoffee.com/rmhavelaar" className="px-3 py-2 rounded-md text-base font-medium text-neutral-200 hover:text-gray-400 flex items-center">
                             Support Me <Coffee className="ml-2" size={16} />
                         </Link>
                     </div>

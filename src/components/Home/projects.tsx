@@ -61,7 +61,7 @@ const cards: Card[] = [
         ctaLink: 'https://aicasereport.com',
         content: () => (
             <p>
-             {/* TODO: add content */}
+                {/* TODO: add content */}
             </p>
         ),
     },
@@ -85,7 +85,7 @@ const cards: Card[] = [
         title: 'File Tree Generator MacOS App',
         src: 'https://i.postimg.cc/8Pj31PkV/FTG-Icon.png',
         ctaText: 'Explore',
-        ctaOpenText: 'Repository',
+        ctaOpenText: 'Learn More',
         ctaLink: '/file-tree-generator-app',
         content: () => (
             <p>

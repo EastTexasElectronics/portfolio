@@ -2,7 +2,6 @@ import React from "react";
 import Vortex from "@/components/ui/vortex";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
-import { track } from '@vercel/analytics';
 
 export function VortexHero() {
     return (
@@ -26,17 +25,16 @@ export function VortexHero() {
                             className="px-4 py-2 bg-gradient-to-bl from-fuchsia-600 via-violet-600 to-blue-600 rounded-lg cursor-pointer hover:opacity-90 transition-opacity duration-200 border-r-10"
                             role="button"
                             aria-label="View my GitHub"
-                            onClick={() => track('Button Clicked', { button: 'GitHub' })}
                         >
                             GitHub
                         </div>
+
                     </Link>
                     <Link href="mailto:rmhavelaar@gmail.com" passHref>
                         <div
                             className="px-4 py-2 text-neutral-100 cursor-pointer"
                             role="button"
                             aria-label="Opens email client to send me an email"
-                            onClick={() => track('Button Clicked', { button: 'Email Me' })}
                         >
                             Email Me
                         </div>

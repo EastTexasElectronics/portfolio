@@ -1,15 +1,11 @@
 // src/components/ftg-features-grid.tsx
 
 import {HoverEffect} from "@/components/ui/card-hover-effect";
-import { track } from '@vercel/analytics';
 
 export function FTGFeaturesGrid() {
     return (
         <div className="max-w-5xl mx-auto px-8">
-            <HoverEffect items={features.map(feature => ({
-                ...feature,
-                onClick: () => track('Feature Clicked', { title: feature.title })
-            }))} />
+            <HoverEffect items={features}/>
         </div>
     );
 }

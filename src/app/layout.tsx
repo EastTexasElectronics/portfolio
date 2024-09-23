@@ -7,7 +7,6 @@ import ContactModal from "@/components/Global/ContactModal";
 import React from "react";
 import { Toaster } from "@/components/ui/toaster"
 import Navbar from "@/components/Global/navbar";
-import { BackgroundBeams } from "@/components/ui/background-beams";
 
 
 export const metadata: Metadata = {
