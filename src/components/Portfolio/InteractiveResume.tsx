@@ -17,6 +17,7 @@ import {
   Folder,
 } from "lucide-react";
 import * as LucideIcons from "lucide-react";
+import { track } from '@vercel/analytics';
 
 import {
   Card,
@@ -406,7 +407,15 @@ const InteractiveResume = () => {
         )}
       </AnimatePresence>
 
-      <Dialog open={!!selectedJob} onOpenChange={() => setSelectedJob(null)}>
+      <Dialog
+        open={!!selectedJob}
+        onOpenChange={(open) => {
+          setSelectedJob(null);
+          if (open && selectedJob) {
+            track('Modal Opened', { modal: 'Job Details', jobTitle: selectedJob.title });
+          }
+        }}
+      >
         <DialogContent className="max-w-3xl border-gray-800 bg-gray-900 text-white">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-white">
@@ -450,6 +459,9 @@ const InteractiveResume = () => {
         onOpenChange={(open) => {
           setSelectedSkill(null);
           setIsAutoplayPaused(open);
+          if (open && selectedSkill) {
+            track('Modal Opened', { modal: 'Skill Details', skillName: selectedSkill.name });
+          }
           if (!open) {
             if (skillModalTimeoutRef.current)
               clearTimeout(skillModalTimeoutRef.current);
@@ -487,7 +499,12 @@ const InteractiveResume = () => {
 
       <Dialog
         open={!!selectedEducation}
-        onOpenChange={() => setSelectedEducation(null)}
+        onOpenChange={(open) => {
+          setSelectedEducation(null);
+          if (open && selectedEducation) {
+            track('Modal Opened', { modal: 'Education Details', degree: selectedEducation.degree });
+          }
+        }}
       >
         <DialogContent className="max-w-3xl border-gray-800 bg-gray-900 text-white">
           <DialogHeader>
