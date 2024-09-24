@@ -275,23 +275,24 @@ const InteractiveResume = () => {
             {...fadeInUp}
             transition={{ delay: index * 0.1 }}
           >
-            <Card className="border-gray-800 bg-gray-900">
+            <Card className="border-gray-800 bg-gray-900 text-center">
               <CardHeader>
                 <CardTitle className="text-white">{project.name}</CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="mb-2 text-sm text-gray-300">
+              <CardContent className="flex flex-col items-center">
+                <p className="mb-4 text-sm text-gray-300">
                   {project.description}
                 </p>
                 <Button
-                  variant="link"
-                  className="p-0 text-blue-400 hover:text-blue-300"
+                  variant="outline"
+                  className="min-h-[44px] px-6 py-2 text-blue-400 hover:text-blue-300 hover:bg-gray-800"
                   onClick={() => track('Button Pressed', { button: 'View Project', projectName: project.name })}
                 >
                   <a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="flex items-center justify-center w-full h-full"
                   >
                     View Project
                   </a>
