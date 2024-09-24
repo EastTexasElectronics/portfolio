@@ -163,7 +163,7 @@ const Navbar = (): React.ReactNode => {
           <div className="hidden flex-grow md:block">
             <div className="ml-10 flex items-center justify-center space-x-4">
               <Dropdown
-                label="Active Projects & Tools"
+                label="Free Apps & Tools"
                 items={activeProjects}
               />
               <Dropdown label="Connect with me" items={connectLinks} />
