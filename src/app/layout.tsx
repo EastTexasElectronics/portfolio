@@ -7,6 +7,7 @@ import ContactModal from "@/components/Global/ContactModal";
 import React from "react";
 import { Toaster } from "@/components/ui/toaster"
 import Navbar from "@/components/Global/navbar";
+import PlausibleProvider from 'next-plausible'
 
 
 export const metadata: Metadata = {
@@ -25,11 +26,13 @@ export default function RootLayout({
         <title>Robert Havelaar</title>
       </head>
       <body className="bg-black">
+        <PlausibleProvider domain="roberthavelaar.dev">
         <Navbar />
         {children}
         <ContactModal />
         <Toaster />
         <Analytics />
+        </PlausibleProvider>
       </body>
     </html>
   );

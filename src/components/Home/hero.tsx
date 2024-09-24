@@ -76,6 +76,7 @@ export function Hero() {
                             className="px-6 py-3 bg-gradient-to-r from-fuchsia-600 via-violet-600 to-blue-600 text-neutral-100 rounded-full cursor-pointer hover:opacity-90 transition-opacity duration-200 flex items-center gap-2"
                             role="button"
                             aria-label="View my GitHub"
+                            data-analytics-event="GitHub Link Clicked" // Plausible Analytics event
                         >
                             <Github size={20} />
                             <span>Explore My Work</span>
@@ -88,6 +89,7 @@ export function Hero() {
                             className="px-6 py-3 bg-neutral-800 text-neutral-100 rounded-full cursor-pointer hover:bg-neutral-700 transition-colors duration-200 flex items-center gap-2"
                             role="button"
                             aria-label="Opens email client to send me an email"
+                            data-analytics-event="Email Link Clicked" // Plausible Analytics event
                         >
                             <Mail size={20} />
                             <span>Let&apos;s Connect</span>
