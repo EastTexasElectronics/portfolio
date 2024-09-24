@@ -76,7 +76,6 @@ export function Hero() {
                             className="px-6 py-3 bg-gradient-to-r from-fuchsia-600 via-violet-600 to-blue-600 text-neutral-100 rounded-full cursor-pointer hover:opacity-90 transition-opacity duration-200 flex items-center gap-2"
                             role="button"
                             aria-label="View my GitHub"
-                            data-analytics-event="GitHub Link Clicked" // Plausible Analytics event
                         >
                             <Github size={20} />
                             <span>Explore My Work</span>
