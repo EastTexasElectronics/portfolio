@@ -115,16 +115,16 @@ const InteractiveResume = () => {
         {resumeData.experience.map((job, index) => (
           <motion.div
             key={index}
-            className="flex"
+            className="flex flex-col sm:flex-row"
             {...fadeInUp}
             transition={{ delay: index * 0.1 }}
           >
-            <div className="w-1/4 pr-4 text-right">
-              <p className="sticky top-24 text-sm text-gray-400">
+            <div className="w-full sm:w-1/4 pr-4 text-left sm:text-right mb-2 sm:mb-0">
+              <p className="text-sm text-gray-400">
                 {job.period}
               </p>
             </div>
-            <div className="relative w-3/4">
+            <div className="relative w-full sm:w-3/4">
               <div className="absolute bottom-0 left-0 top-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-500"></div>
               <div className="relative pl-6">
                 <div className="absolute left-0 top-2 h-3 w-3 rounded-full bg-blue-500"></div>
@@ -229,7 +229,7 @@ const InteractiveResume = () => {
           >
         ).map((category) => (
           <TabsContent key={category} value={category} className="mt-4">
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {resumeData.skills[category].map((skill, index) => {
                 const IconComponent = (LucideIcons[skill.icon as keyof typeof LucideIcons] || LucideIcons.Code) as React.ElementType;
                 return (
@@ -246,7 +246,7 @@ const InteractiveResume = () => {
                       }}
                     >
                       <div className="flex flex-col items-center space-y-2">
-                        <IconComponent className="h-8 w-8 flex-shrink-0 text-blue-400" />
+                        <IconComponent className="h-8 w-8 flex-shrink-0 text-blue-400" aria-hidden="true" />
                         <p
                           className="w-full break-words text-center text-sm text-white"
                           style={{ fontSize: "clamp(0.7rem, 2vw, 0.875rem)" }}
@@ -307,9 +307,9 @@ const InteractiveResume = () => {
   );
 
   return (
-    <div className="mx-auto max-w-4xl space-y-12 bg-black p-6 text-gray-100">
+    <div className="mx-auto max-w-4xl space-y-12 bg-black p-4 sm:p-6 text-gray-100">
       <motion.nav
-        className="sticky top-0 z-10 mb-8 flex justify-center space-x-4 rounded-b-lg bg-gray-900 p-4 shadow-md"
+        className="sticky top-0 z-10 mb-8 flex flex-wrap justify-center space-x-2 sm:space-x-4 rounded-b-lg bg-gray-900 p-2 sm:p-4 shadow-md"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 100 }}
@@ -427,8 +427,8 @@ const InteractiveResume = () => {
           }
         }}
       >
-        <DialogContent className="max-w-3xl border-gray-800 bg-gray-900 text-white">
-          <DialogHeader>
+        <DialogContent className="max-w-3xl border-gray-800 bg-gray-900 text-white max-h-[90vh] flex flex-col overflow-hidden">
+          <DialogHeader className="flex-shrink-0">
             <DialogTitle className="text-2xl font-bold text-white">
               {selectedJob?.title}
             </DialogTitle>
@@ -436,30 +436,32 @@ const InteractiveResume = () => {
               {selectedJob?.company}
             </DialogDescription>
           </DialogHeader>
-          <div className="mt-4 space-y-6">
-            <div>
-              <h3 className="mb-2 text-xl font-semibold text-white">
-                Responsibilities
-              </h3>
-              <ul className="list-disc space-y-2 pl-5 text-gray-300">
-                {selectedJob?.responsibilities.map((resp, index) => (
-                  <li key={index}>{resp}</li>
-                ))}
-              </ul>
-            </div>
-            <Separator className="bg-gray-800" />
-            <div>
-              <h3 className="mb-2 text-xl font-semibold text-white">
-                What I Learned
-              </h3>
-              <p className="text-gray-300">{selectedJob?.learned}</p>
-            </div>
-            <Separator className="bg-gray-800" />
-            <div>
-              <h3 className="mb-2 text-xl font-semibold text-white">
-                Memorable Story
-              </h3>
-              <p className="text-gray-300">{selectedJob?.story}</p>
+          <div className="flex-grow overflow-y-auto">
+            <div className="mt-4 space-y-6 pr-4">
+              <div>
+                <h3 className="mb-2 text-xl font-semibold text-white">
+                  Responsibilities
+                </h3>
+                <ul className="list-disc space-y-2 pl-5 text-gray-300">
+                  {selectedJob?.responsibilities.map((resp, index) => (
+                    <li key={index}>{resp}</li>
+                  ))}
+                </ul>
+              </div>
+              <Separator className="bg-gray-800" />
+              <div>
+                <h3 className="mb-2 text-xl font-semibold text-white">
+                  What I Learned
+                </h3>
+                <p className="text-gray-300">{selectedJob?.learned}</p>
+              </div>
+              <Separator className="bg-gray-800" />
+              <div>
+                <h3 className="mb-2 text-xl font-semibold text-white">
+                  Memorable Story
+                </h3>
+                <p className="text-gray-300">{selectedJob?.story}</p>
+              </div>
             </div>
           </div>
         </DialogContent>
