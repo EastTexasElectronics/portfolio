@@ -1,5 +1,3 @@
-/** Home Page */
-
 import { Hero } from "@/components/Home/hero";
 import { SkillsGrid } from "@/components/Home/skills-grid";
 import { Projects } from "@/components/Home/projects";

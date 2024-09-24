@@ -1,11 +1,11 @@
 'use client'
 
-import React, {useState} from 'react'
-import {useForm} from 'react-hook-form'
+import React, { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import axios from 'axios'
-import {zodResolver} from '@hookform/resolvers/zod'
+import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
-import {Button} from '../../components/ui/button'
+import { Button } from '@/components/ui/button'
 import {
     Form,
     FormControl,
@@ -13,18 +13,19 @@ import {
     FormItem,
     FormLabel,
     FormMessage,
-} from '../../components/ui/form'
-import {Input} from '../../components/ui/input'
-import {Textarea} from '../../components/ui/textarea'
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
 import {
     Select,
     SelectContent,
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from '../../components/ui/select'
-import {X} from 'lucide-react'
-import {toast} from '@/components/ui/use-toast'
+} from '@/components/ui/select'
+import { X } from 'lucide-react'
+import { toast } from '@/components/ui/use-toast'
+import { track } from '@vercel/analytics';
 
 /**
  * Zod schema for form validation
@@ -125,11 +126,26 @@ const ContactModal: React.FC<ContactModalProps> = () => {
         form.reset()
     }
 
+    const handleButtonClick = () => {
+        track('Button Clicked', {
+            name: 'Contact Me',
+            location: 'Fixed bottom-right corner',
+        });
+        setIsOpen(true);
+    };
+
+    const handleLinkClick = () => {
+        track('Link Clicked', {
+            name: 'Email Link',
+            location: 'Modal Description',
+        });
+    };
+
     return (
         <>
             {/* Button to open the contact modal */}
             <Button
-                onClick={() => setIsOpen(true)}
+                onClick={handleButtonClick}
                 className="fixed right-4 bottom-4 bg-gradient-to-bl from-fuchsia-600 via-violet-600 to-blue-600 rounded-full cursor-pointer hover:opacity-90 transition-opacity duration-200 border-r-10 text-white font-extrabold shadow-lg z-40"
                 aria-label="Open contact form"
             >
@@ -156,7 +172,7 @@ const ContactModal: React.FC<ContactModalProps> = () => {
                             className="absolute top-2 right-2 text-neutral-400 hover:text-neutral-200"
                             aria-label="Close contact form"
                         >
-                            <X size={24}/>
+                            <X size={24} />
                         </button>
 
                         {/* Modal title */}
@@ -166,7 +182,7 @@ const ContactModal: React.FC<ContactModalProps> = () => {
                         {/* Description with mailto link */}
                         <p className="text-neutral-300 mb-4 text-center">
                             Fill out this form or email me directly at{' '}
-                            <a href="mailto:contact@easttexaselectronics.com" className="text-blue-400 hover:underline">
+                            <a href="mailto:contact@easttexaselectronics.com" className="text-blue-400 hover:underline" onClick={handleLinkClick}>
                                 contact@easttexaselectronics.com
                             </a>
                         </p>
@@ -178,7 +194,7 @@ const ContactModal: React.FC<ContactModalProps> = () => {
                                 <FormField
                                     control={form.control}
                                     name="name"
-                                    render={({field}) => (
+                                    render={({ field }) => (
                                         <FormItem>
                                             <FormLabel className="text-neutral-300">Name *</FormLabel>
                                             <FormControl>
@@ -189,7 +205,7 @@ const ContactModal: React.FC<ContactModalProps> = () => {
                                                     aria-required="true"
                                                 />
                                             </FormControl>
-                                            <FormMessage className="text-red-400"/>
+                                            <FormMessage className="text-red-400" />
                                         </FormItem>
                                     )}
                                 />
@@ -198,7 +214,7 @@ const ContactModal: React.FC<ContactModalProps> = () => {
                                 <FormField
                                     control={form.control}
                                     name="email"
-                                    render={({field}) => (
+                                    render={({ field }) => (
                                         <FormItem>
                                             <FormLabel className="text-neutral-300">Email *</FormLabel>
                                             <FormControl>
@@ -210,7 +226,7 @@ const ContactModal: React.FC<ContactModalProps> = () => {
                                                     type="email"
                                                 />
                                             </FormControl>
-                                            <FormMessage className="text-red-400"/>
+                                            <FormMessage className="text-red-400" />
                                         </FormItem>
                                     )}
                                 />
@@ -219,7 +235,7 @@ const ContactModal: React.FC<ContactModalProps> = () => {
                                 <FormField
                                     control={form.control}
                                     name="reason"
-                                    render={({field}) => (
+                                    render={({ field }) => (
                                         <FormItem>
                                             <FormLabel className="text-neutral-300">Reason for Contact
                                                 (Optional)</FormLabel>
@@ -227,19 +243,19 @@ const ContactModal: React.FC<ContactModalProps> = () => {
                                                 <FormControl>
                                                     <SelectTrigger
                                                         className="bg-gray-700 text-neutral-200 border-gray-600 rounded-md">
-                                                        <SelectValue placeholder="Select a reason"/>
+                                                        <SelectValue placeholder="Select a reason" />
                                                     </SelectTrigger>
                                                 </FormControl>
                                                 <SelectContent className="bg-gray-700 text-neutral-200 border-gray-600">
                                                     {reasons.map((reason) => (
                                                         <SelectItem key={reason} value={reason}
-                                                                    className="focus:bg-gray-600">
+                                                            className="focus:bg-gray-600">
                                                             {reason}
                                                         </SelectItem>
                                                     ))}
                                                 </SelectContent>
                                             </Select>
-                                            <FormMessage className="text-red-400"/>
+                                            <FormMessage className="text-red-400" />
                                         </FormItem>
                                     )}
                                 />
@@ -248,7 +264,7 @@ const ContactModal: React.FC<ContactModalProps> = () => {
                                 <FormField
                                     control={form.control}
                                     name="message"
-                                    render={({field}) => (
+                                    render={({ field }) => (
                                         <FormItem>
                                             <FormLabel className="text-neutral-300">Message *</FormLabel>
                                             <FormControl>
@@ -259,7 +275,7 @@ const ContactModal: React.FC<ContactModalProps> = () => {
                                                     aria-required="true"
                                                 />
                                             </FormControl>
-                                            <FormMessage className="text-red-400"/>
+                                            <FormMessage className="text-red-400" />
                                         </FormItem>
                                     )}
                                 />

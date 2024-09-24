@@ -109,6 +109,10 @@ const InteractiveResume = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+  const handleButtonClick = (buttonName: string) => {
+    track('Button Pressed', { button: buttonName, location: window.location.pathname });
+  };
+
   const renderExperience = useMemo(
     () => (
       <div className="space-y-8">
@@ -286,7 +290,9 @@ const InteractiveResume = () => {
                 <Button
                   variant="outline"
                   className="min-h-[44px] px-6 py-2 text-blue-400 hover:text-blue-300 hover:bg-gray-800"
-                  onClick={() => track('Button Pressed', { button: 'View Project', projectName: project.name })}
+                  onClick={() => {
+                    track('Button Pressed', { button: 'View Project', projectName: project.name, location: window.location.pathname });
+                  }}
                 >
                   <a
                     href={project.link}
@@ -330,6 +336,7 @@ const InteractiveResume = () => {
               document
                 .getElementById(section.toLowerCase())
                 ?.scrollIntoView({ behavior: "smooth" });
+              handleButtonClick(section);
             }}
           >
             {section}

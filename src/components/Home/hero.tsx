@@ -24,7 +24,7 @@ export function Hero() {
                     transition={{ delay: 0.2, type: "spring", stiffness: 260, damping: 20 }}
                 >
                     <Badge variant="default" className="mb-6 text-neutral-100 text-lg px-4 py-2">
-                        Welcome to My Portfolio 🚀
+                        Welcome to My Portfolio 👋🏼
                     </Badge>
                 </motion.div>
 
@@ -37,7 +37,6 @@ export function Hero() {
                         track('Hero Section Viewed');
                     }}
                 >
-
                     Robert Havelaar
                 </motion.h1>
 
@@ -58,15 +57,15 @@ export function Hero() {
                 >
                     <div className="flex flex-col items-center">
                         <Code size={32} className="text-blue-500 mb-2" />
-                        <span className="text-neutral-300">Clean Code</span>
+                        <span className="text-neutral-300">Dependable</span>
                     </div>
                     <div className="flex flex-col items-center">
                         <Briefcase size={32} className="text-green-500 mb-2" />
-                        <span className="text-neutral-300">Project Delivery</span>
+                        <span className="text-neutral-300">Ethical</span>
                     </div>
                     <div className="flex flex-col items-center">
                         <Zap size={32} className="text-yellow-500 mb-2" />
-                        <span className="text-neutral-300">Fast Learner</span>
+                        <span className="text-neutral-300">Passionate</span>
                     </div>
                 </motion.div>
 

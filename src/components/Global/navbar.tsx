@@ -4,6 +4,7 @@ import React, { useState, useRef } from "react";
 import { Menu, X, ChevronDown, Coffee, Mail, FileText } from "lucide-react";
 import Link from "next/link";
 import { useOutsideClick } from "@/hooks/use-outside-click";
+import { track } from '@vercel/analytics';
 
 interface DropdownItem {
   name: string;
@@ -16,16 +17,6 @@ interface DropdownProps {
   isMobile?: boolean;
 }
 
-/**
- * Dropdown component for displaying a collapsible menu.
- *
- * @param {Object} props - The properties passed to the component.
- * @param {string} props.label - The text to display on the dropdown button.
- * @param {Array<{name: string, href: string}>} props.items - An array of items to display in the dropdown.
- * @param {boolean} [props.isMobile=false] - Whether the dropdown is being rendered in a mobile view.
- *
- * @returns {React.ReactNode} A dropdown menu component.
- */
 const Dropdown = ({
   label,
   items,
@@ -38,14 +29,13 @@ const Dropdown = ({
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
+    track('Dropdown Toggled', { label, location: isMobile ? 'Mobile Navbar' : 'Desktop Navbar' });
   };
 
-  /**
-   * Returns the appropriate icon for a given menu item.
-   *
-   * @param {string} name - The name of the menu item.
-   * @returns {React.ReactElement | null} The icon component or null if no icon is found.
-   */
+  const handleLinkClick = (itemName: string, itemHref: string) => {
+    track('Link Clicked', { name: itemName, href: itemHref, location: isMobile ? 'Mobile Navbar' : 'Desktop Navbar' });
+  };
+
   const getIcon = (name: string): React.ReactElement | null => {
     switch (name) {
       case "GitHub":
@@ -103,6 +93,7 @@ const Dropdown = ({
                 href={item.href}
                 className="flex items-center px-4 py-2 text-sm text-neutral-200 hover:bg-gray-700 hover:text-white"
                 role="menuitem"
+                onClick={() => handleLinkClick(item.name, item.href)}
               >
                 {getIcon(item.name)}
                 {item.name}
@@ -115,11 +106,6 @@ const Dropdown = ({
   );
 };
 
-/**
- * Navbar component for the main navigation of the website.
- *
- * @returns {React.ReactNode} A responsive navigation bar component.
- */
 const Navbar = (): React.ReactNode => {
   const [menuOpen, setMenuOpen] = useState(false);
 

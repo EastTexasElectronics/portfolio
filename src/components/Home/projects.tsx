@@ -26,7 +26,7 @@ const cards: Card[] = [
     {
         description: 'A macOS app to convert SVG files to Shopify Liquid Templates',
         title: 'SVG 2 Liquid',
-        src: 'https://i.postimg.cc/zGrsZpSg/s2l-Logo.png',
+        src: 'https://igivkjgfrelcauvcnwhl.supabase.co/storage/v1/object/public/Images/S2L%20Logo.png',
         ctaText: 'Explore',
         ctaOpenText: 'Learn More',
         ctaLink: 'https://roberthavelaar.dev/S2L',
@@ -68,7 +68,7 @@ const cards: Card[] = [
     {
         description: "A CLI File Tree Generator tool written in various languages",
         title: 'File Tree Generator Multiverse',
-        src: 'https://i.postimg.cc/Wd5xqBXy/FTG-Logo.png',
+        src: 'https://igivkjgfrelcauvcnwhl.supabase.co/storage/v1/object/public/Images/FTG%20Icon%20(3).png',
         ctaText: 'Explore',
         ctaOpenText: 'Repository',
         ctaLink: 'https://github.com/EastTexasElectronics/File-Tree-Generator-Multiverse',
@@ -83,7 +83,7 @@ const cards: Card[] = [
     {
         description: "Create visual representations of directory tree structures",
         title: 'File Tree Generator MacOS App',
-        src: 'https://i.postimg.cc/8Pj31PkV/FTG-Icon.png',
+        src: 'https://igivkjgfrelcauvcnwhl.supabase.co/storage/v1/object/public/Images/FTG%20Icon%20(3).png',
         ctaText: 'Explore',
         ctaOpenText: 'Learn More',
         ctaLink: '/file-tree-generator-app',
@@ -96,7 +96,7 @@ const cards: Card[] = [
     {
         description: "Interested in checking out the source code for this portfolio?",
         title: 'My Portfolio',
-        src: 'https://i.postimg.cc/8Pj31PkV/FTG-Icon.png',
+        src: 'https://igivkjgfrelcauvcnwhl.supabase.co/storage/v1/object/public/Images/Untitled%20design%20logo%20(1).png',
         ctaText: 'Explore',
         ctaOpenText: 'Repository',
         ctaLink: 'https://github.com/EastTexasElectronics/roberthavelaar.dev',
@@ -148,6 +148,10 @@ export function Projects(): React.JSX.Element {
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                                 className="fixed inset-0 bg-black/20 h-full w-full z-10"
+                                onClick={() => {
+                                    setActive(null);
+                                    track('Overlay Clicked', { location: 'Overlay', title: active.title });
+                                }}
                             />
                             <div className="fixed inset-0 grid place-items-center z-[100]">
                                 <motion.button
@@ -159,7 +163,7 @@ export function Projects(): React.JSX.Element {
                                     className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-black rounded-full h-6 w-6 z-[110]"
                                     onClick={() => {
                                         setActive(null);
-                                        track('Button Pressed', { button: 'Close Modal', title: active.title });
+                                        track('Button Pressed', { button: 'Close Modal', location: 'Modal', title: active.title });
                                     }}
                                 >
                                     <CloseIcon />
@@ -177,6 +181,7 @@ export function Projects(): React.JSX.Element {
                                             fill
                                             sizes="(max-width: 700px) 100vw, 700px"
                                             className="object-contain"
+                                            onClick={() => track('Image Clicked', { location: 'Modal', title: active.title })}
                                         />
                                     </motion.div>
                                     <div>
@@ -201,7 +206,7 @@ export function Projects(): React.JSX.Element {
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="px-4 py-3 text-sm text-neutral-100 rounded-full font-bold bg-gradient-to-bl from-fuchsia-600 via-violet-600 to-blue-600 cursor-pointer hover:opacity-90 transition-opacity duration-200 text-center"
-                                                onClick={() => track('Button Pressed', { button: active.ctaOpenText ?? active.ctaText, title: active.title })}
+                                                onClick={() => track('Link Clicked', { button: active.ctaOpenText ?? active.ctaText, location: 'Modal', title: active.title })}
                                             >
                                                 {active.ctaOpenText ?? active.ctaText}
                                             </motion.a>
@@ -227,13 +232,12 @@ export function Projects(): React.JSX.Element {
                 </AnimatePresence>
                 <ul className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-6">
                     {cards.map((card) => (
-                        <li key={`card-${card.title}-${id}`} className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-800 rounded-xl cursor-pointer w-full">
+                        <li key={`card-${card.title}-${id}`} className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-800 rounded-xl cursor-pointer w-full" onClick={() => {
+                            setActive(card);
+                            track('Card Clicked', { location: 'Card List', title: card.title });
+                        }}>
                             <motion.div
                                 layoutId={`card-${card.title}-${id}`}
-                                onClick={() => {
-                                    setActive(card);
-                                    track('Button Pressed', { button: card.ctaText, title: card.title });
-                                }}
                                 className="flex gap-4 flex-col md:flex-row w-full items-center"
                             >
                                 <motion.div layoutId={`image-${card.title}-${id}`}
@@ -246,6 +250,7 @@ export function Projects(): React.JSX.Element {
                                         sizes="(max-width: 768px) 160px, 56px"
                                         className="object-contain"
                                         priority
+                                        onClick={() => track('Image Clicked', { location: 'Card List', title: card.title })}
                                     />
                                 </motion.div>
                                 <div className="flex-1">
@@ -267,9 +272,9 @@ export function Projects(): React.JSX.Element {
                                 layoutId={`button-${card.title}-${id}`}
                                 className="px-4 py-2 text-sm rounded-full font-bold bg-gray-800 hover:bg-gradient-to-bl from-blue-600 via-purple-700 to-fuchsia-700 hover:text-neutral-100 text-neutral-100 mt-4 md:mt-0"
                                 onClick={(e) => {
-                                    e.stopPropagation(); // Prevent the card from opening
+                                    e.stopPropagation();
                                     setActive(card);
-                                    track('Button Pressed', { button: card.ctaText, title: card.title });
+                                    track('Button Pressed', { button: card.ctaText, location: 'Card List', title: card.title });
                                 }}
                             >
                                 {card.ctaText}

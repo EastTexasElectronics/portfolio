@@ -1,4 +1,7 @@
+'use client';
+
 import { cn } from "@/lib/utils";
+import { track } from '@vercel/analytics';
 import {
     IconDeviceIpadCog,
     IconCurrencyDollar,
@@ -68,6 +71,7 @@ const Feature = ({
                 (index === 0 || index === 3 || index === 6) && "lg:border-l",
                 index < 6 && "lg:border-b"
             )}
+            onClick={() => track('Feature Clicked', { title, location: 'SkillsGrid' })}
         >
             {index < 6 && (
                 <div className="hidden lg:block opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-neutral-700 to-transparent pointer-events-none" />
