@@ -22,7 +22,7 @@ export interface Skill {
   name: string;
   details: string;
   icon: string;
-  applications: string[]; // New field
+  applications: string[];
 }
 
 interface Project {
@@ -595,7 +595,7 @@ export const resumeData: ResumeData = {
       name: "East Texas Electronics LLC.",
       description:
         "This was my Shopify store that I built to sell electronics and computer parts globally. It is no longer in operation since shutting down the retail side of things to focus on software development.",
-      link: "N/A",
+      link: "/rmh-resume-public",
     },
     {
       name: "Global Sweets Market LLC.",
@@ -613,13 +613,13 @@ export const resumeData: ResumeData = {
       name: "SVG 2 Liquid",
       description:
         "A macOS application built using Swift that allows users to convert SVG files to Liquid templates for Shopify. This was a passion project of mine that I built to help Shopify store owners convert their SVG files to Liquid templates.",
-      link: "https://roberthavelaar.dev/svg-2-liquid",
+      link: "https://www.roberthavelaar.dev/S2L",
     },
     {
       name: "File Tree Generator",
       description:
         "A macOS or Go application that allows users to generate a visual representation of the file structure within a directory.",
-      link: "https://roberthavelaar.dev/ftg-app",
+      link: "https://www.roberthavelaar.dev/file-tree-generator-app",
     },
   ],
   about: {

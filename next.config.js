@@ -9,7 +9,13 @@ const config = {
         hostname: "i.postimg.cc",
         port: "",
         pathname: "/**",
-      }
+      },
+      {
+        protocol: "https",
+        hostname: "igivkjgfrelcauvcnwhl.supabase.co",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };

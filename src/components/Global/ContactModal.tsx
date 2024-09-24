@@ -24,7 +24,7 @@ import {
     SelectValue,
 } from '../../components/ui/select'
 import {X} from 'lucide-react'
-import {toast} from '../../components/ui/use-toast'
+import {toast} from '@/components/ui/use-toast'
 
 /**
  * Zod schema for form validation
@@ -96,14 +96,15 @@ const ContactModal: React.FC<ContactModalProps> = () => {
                     'Content-Type': 'application/json',
                 },
             })
-            console.log('Form submitted successfully', response.data)
+            console.log('Form submitted successfully', response.data);
             toast({
                 title: "Success!",
                 description: "Your message has been sent. I will get back to you as soon as possible.",
                 variant: "default",
-            })
-            setIsOpen(false)
-            form.reset()
+            });
+            console.log('Toast called');
+            setIsOpen(false);
+            form.reset();
         } catch (error) {
             console.error('Error submitting form', error)
             toast({

@@ -12,7 +12,7 @@ import type { ToastActionElement, ToastProps } from "@/components/ui/toast";
 /** Maximum number of toasts visible at once */
 const TOAST_LIMIT = 1;
 /** Delay before removing the toast from the DOM */
-const TOAST_REMOVE_DELAY = 1000000;
+const TOAST_REMOVE_DELAY = 5000;
 
 /**
  * Extends ToastProps to include additional properties for internal use
@@ -51,7 +51,7 @@ interface State {
 }
 
 /** Map to store timeouts for toast removal */
-const toastTimeouts = new Map<string, NodeJS.Timeout>();
+const toastTimeouts = new Map<string, ReturnType<typeof setTimeout>>();
 
 /**
  * Adds a toast to the removal queue

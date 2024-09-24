@@ -55,13 +55,13 @@ const cards: Card[] = [
     {
         description: "A SaaS platform for creating business reports",
         title: "AiCaseReport.com",
-        src: 'https://i.postimg.cc/p9y4fsSL/NSA-Logo.png', // TODO: Replace with correct logo
+        src: 'https://igivkjgfrelcauvcnwhl.supabase.co/storage/v1/object/public/Images/Logo%20design.webp',
         ctaText: 'Explore',
         ctaOpenText: 'Visit Site',
         ctaLink: 'https://aicasereport.com',
         content: () => (
             <p>
-                {/* TODO: add content */}
+                AiCaseReport.com is a project I am working on that allows users to create business reports and case studies with AI.
             </p>
         ),
     },
@@ -199,6 +199,7 @@ export function Projects(): React.JSX.Element {
                                                 layoutId={`button-${active.title}-${id}`}
                                                 href={active.ctaLink}
                                                 target="_blank"
+                                                rel="noopener noreferrer"
                                                 className="px-4 py-3 text-sm text-neutral-100 rounded-full font-bold bg-gradient-to-bl from-fuchsia-600 via-violet-600 to-blue-600 cursor-pointer hover:opacity-90 transition-opacity duration-200 text-center"
                                                 onClick={() => track('Button Pressed', { button: active.ctaOpenText ?? active.ctaText, title: active.title })}
                                             >
@@ -265,7 +266,11 @@ export function Projects(): React.JSX.Element {
                             <motion.button
                                 layoutId={`button-${card.title}-${id}`}
                                 className="px-4 py-2 text-sm rounded-full font-bold bg-gray-800 hover:bg-gradient-to-bl from-blue-600 via-purple-700 to-fuchsia-700 hover:text-neutral-100 text-neutral-100 mt-4 md:mt-0"
-                                onClick={() => track('Button Pressed', { button: card.ctaText, title: card.title })}
+                                onClick={(e) => {
+                                    e.stopPropagation(); // Prevent the card from opening
+                                    setActive(card);
+                                    track('Button Pressed', { button: card.ctaText, title: card.title });
+                                }}
                             >
                                 {card.ctaText}
                             </motion.button>

@@ -61,8 +61,8 @@ const InteractiveResume = () => {
   );
   const [activeTab, setActiveTab] = useState<string>("technical");
   const [isAutoplayPaused, setIsAutoplayPaused] = useState<boolean>(false);
-  const autoplayTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const skillModalTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const autoplayTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const skillModalTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleScroll = useCallback(() => {
     const currentScrollTop =
