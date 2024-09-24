@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import { Menu, X, ChevronDown, Coffee, Mail } from "lucide-react";
+import { Menu, X, ChevronDown, Coffee, Mail, FileText } from "lucide-react";
 import Link from "next/link";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 
@@ -168,6 +168,12 @@ const Navbar = (): React.ReactNode => {
               />
               <Dropdown label="Connect with me" items={connectLinks} />
               <Link
+                href="/rmh-resume-public"
+                className="flex items-center text-neutral-200 hover:text-gray-400"
+              >
+                Resume <FileText className="ml-2" size={16} />
+              </Link>
+              <Link
                 href="https://buymeacoffee.com/rmhavelaar"
                 className="flex items-center text-neutral-200 hover:text-gray-400"
               >
@@ -205,6 +211,12 @@ const Navbar = (): React.ReactNode => {
               items={connectLinks}
               isMobile={true}
             />
+            <Link
+              href="/rmh-resume-public"
+              className="flex items-center rounded-md px-3 py-2 text-base font-medium text-neutral-200 hover:text-gray-400"
+            >
+              Resume <FileText className="ml-2" size={16} />
+            </Link>
             <Link
               href="https://buymeacoffee.com/rmhavelaar"
               target="_blank"
