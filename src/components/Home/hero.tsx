@@ -5,6 +5,9 @@ import { motion } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import { Github, Mail, ChevronDown, Code, Briefcase, Zap } from "lucide-react"
+import { track } from '@vercel/analytics';
+
+
 
 export function Hero() {
     return (
@@ -30,7 +33,11 @@ export function Hero() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.4, duration: 0.8 }}
+                    onClick={() => {
+                        track('Hero Section Viewed');
+                    }}
                 >
+
                     Robert Havelaar
                 </motion.h1>
 
@@ -76,9 +83,12 @@ export function Hero() {
                             className="px-6 py-3 bg-gradient-to-r from-fuchsia-600 via-violet-600 to-blue-600 text-neutral-100 rounded-full cursor-pointer hover:opacity-90 transition-opacity duration-200 flex items-center gap-2"
                             role="button"
                             aria-label="View my GitHub"
+                            onClick={() => {
+                                track('GitHub Link Clicked', { location: "Home Hero" });
+                            }}
                         >
                             <Github size={20} />
-                            <span>Explore My Work</span>
+                            <span>View my GitHub</span>
                         </motion.div>
                     </Link>
                     <Link href="mailto:rmhavelaar@gmail.com" passHref>
@@ -88,7 +98,9 @@ export function Hero() {
                             className="px-6 py-3 bg-neutral-800 text-neutral-100 rounded-full cursor-pointer hover:bg-neutral-700 transition-colors duration-200 flex items-center gap-2"
                             role="button"
                             aria-label="Opens email client to send me an email"
-                            data-analytics-event="Email Link Clicked" // Plausible Analytics event
+                            onClick={() => {
+                                track('Email Link Clicked', { location: "Home Hero" });
+                            }}
                         >
                             <Mail size={20} />
                             <span>Let&apos;s Connect</span>
